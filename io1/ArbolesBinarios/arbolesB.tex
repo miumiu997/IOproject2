@@ -1,5 +1,6 @@
 \documentclass[10]{beamer} 
 \usepackage[T1]{fontenc} 
+\usepackage{lmodern}
 \usepackage[spanish]{babel}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
@@ -19,7 +20,7 @@
 \title{{\color{WHITE} \large \textbf{INSTITUTO TECNOL\'OGICO DE COSTA RICA}} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{ESCUELA DE INGENIER\'IA EN COMPUTACI'ON }} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{INVESTIGACI\'ON DE OPERACIONES  }} \\ \vspace{0.02cm} 
-{\color{WHITE} \large \textbf{ALGORITMO DE LA MOCHILA - KNAPSACK  }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{ALGORITMO DE A\'RBOLES BINARIOS DE B\'USQUEDAS \'OPTIMAS  }} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{I SEMESTRE  }}\\ \vspace{0.02cm}
 {\color{WHITE} \large \textbf{PROFESOR}} \\ \vspace{0.02cm}
 {\color{WHITE} \large DR. FRANCISCO J. TORRES ROJAS  } \\ \vspace{0.02cm}
@@ -34,19 +35,28 @@
 \end{frame} 
 \begin{frame}
 \color{white}
-\frametitle{ALGORITMO DE LA MOCHILA}
-El algoritmo de Floyd-Warshall, descrito en 1959 por Bernard Roy.
-\\Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos ponderados.
-\\El algoritmo encuentra el camino entre todos los pares de vértices en una única ejecución.
-\\ El algoritmo de Floyd-Warshall es un ejemplo de programación dinámica.
+\frametitle{ALGORITMO DE A\'RBOLES BINARIOS DE B\'USQUEDAS \'OPTIMAS}
+Tambi\'en llamados BST (acr\'onimo del ingl\'es Binary Search Tree).
+\\ Tipo particular de \'arbol binario que presenta una estructura de datos en forma de \'arbol .
+\\Un \'arbol binario no vac\'io, de ra\'iz R.
+\\ Existe una relaci\'on de orden establecida entre los elementos de los nodos.
 \end{frame} 
 \begin{frame}
 \color{white}
-\frametitle{ROBERT W. FLOYD}
-Cient\'ifico de la computaci\'on USA (1936-2001)\\
-Bachiller en Artes Liberales y F\'isica. \\ Operador de computadoras (1960). \\ Gan\'o un premio Turing en 1978.
+\frametitle{CONDICIONES DE UN \'ARBOL BINARIO}
+En caso de tener sub\'arbol izquierdo, la ra\'iz R debe ser mayor que el valor m\'aximo almacenado en el sub\'arbol izquierdo, y que el sub\'arbol izquierdo sea un \'arbol binario de b\'usqueda.
 \end{frame} 
-\begin{frame}\frametitle{KnapSack}
+\begin{frame}
+\color{white}
+\frametitle{CONDICIONES DE UN \'ARBOL BINARIO - CONT}
+En caso de tener sub\'arbol derecho, la ra\'iz R debe ser menor que el valor m\'inimo almacenado en el sub\'arbol derecho, y que el sub\'arbol derecho sea un \'arbol binario de b\'usqueda.
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{PRINCIPIO DE OPTIMALIDAD}
+Todos los sub\'arboles de un \'arbol \'optimo son \'optimos con respecto a las claves que contienen.
+\end{frame} 
+\begin{frame}\frametitle{VALORES INICIALES}
  \color{white}
 \end{frame} 
 \end{document}
