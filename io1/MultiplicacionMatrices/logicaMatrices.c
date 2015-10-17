@@ -5,7 +5,27 @@
 #include <math.h>
 
 
-int MatricesBeamer(void){
+void llenarDimensiones(char* nameMat,int nMatrices ,int** matrices){
+    /*
+    Se llenan las dimensiones de cada matriz.
+    [0] corresponde a las filas
+    [1] corresponde a columnas
+    **/
+    int i;
+    int j;
+    for(i=0; i<nMatrices;i++){
+        printf("Filas de M[%d]\n",i );
+        scanf("%d",&matrices[i][0]);
+        printf("Columnas de M[%d]\n",i );
+        scanf("%d",&matrices[i][1]);
+    }
+    printf("Nombre de la matriz %s\n",nameMat );
+    int num;
+    scanf("%d",num);
+    MatricesBeamer(nameMat,nMatrices,matrices);
+}// end LlenarDimensiones
+
+int MatricesBeamer(char* nameMat, int nMatrices, int** matrices){
     /*
     Genera el codigo beamer necesario para la estructuracion de la presentacion.
     Autores: Kathy Brenes, Miuyin Yong, Adrian Cubero.
@@ -81,6 +101,58 @@ int MatricesBeamer(void){
 
     fprintf(fp,"\\begin{frame}\\frametitle{VALORES INICIALES}\n ");
     fprintf(fp,"\\color{white}\n");
+
+    fprintf(fp,"\\begin{table}\n ");
+    fprintf(fp,"\\begin{tabular}{");
+     
+    int i;
+    for(i=0; i<nMatrices;i++){
+        if(i==0){
+            fprintf(fp," c");
+        }else{
+            fprintf(fp," | c ");
+        }//end else
+    }//end for generador tabla
+    fprintf(fp,"}\n \\\\  ");
+    //termina la cantidad de columnas que va tener la tabla
+    //Imprimir nombres de variables
+    
+    for(i=0; i<nMatrices;i++){
+        if(i==0){
+            fprintf(fp,"$%s_%d$",nameMat,i);
+        }else{
+            fprintf(fp," & $%s_%d$  ",nameMat,i);
+        }//end if
+    }//end for nombre de la matriz
+    fprintf(fp,"\\\\ \n \\hline \\hline \n ");
+
+    //Imprimir las dimensiones de cada matriz
+    for(i=0; i<nMatrices;i++){
+        if(i==0){
+            fprintf(fp,"$%dx%d$",matrices[i][0],matrices[i][1]);
+        }else{
+            fprintf(fp," & $%dx%d$  ",matrices[i][0],matrices[i][1]);
+        }//end if
+    }//end for nombre de la matriz
+    fprintf(fp," \\\\ \n "); 
+
+    //imprimir los d
+    int dimensiones= nMatrices*2;
+    i=0;
+    while(i<dimensiones){
+        if(i==0){
+            fprintf(fp,"$d_%dxd_%d$",i,i+1);
+        }else{
+            fprintf(fp," & $d_%dxd_%d$  ",i,i+1);
+        }//end if
+        i=i+2;
+    }//end for nombre de la matriz
+    fprintf(fp," \n ");     
+    fprintf(fp,"\\end{tabular}\n ");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\caption{Valores iniciales}\n ");
+    fprintf(fp,"\\end{table}\n ");
+
     fprintf(fp,"\\end{frame} \n");
    
    
@@ -94,5 +166,21 @@ int MatricesBeamer(void){
 }
 
 void main(){
-	MatricesBeamer();
+
+    //Variables
+    int nMatrices;
+    int i; 
+    char* c;
+    printf("\n Nombre de las matrices\n");
+    scanf("%s",&c);
+    printf("NOmbres de la matriz %s\n",c );
+    printf("\n nMatrices\n");
+    scanf("%d",&nMatrices);
+    printf("Matrices: %d\n",nMatrices );  
+    int **matrices = (int **)calloc(nMatrices+1,sizeof(int *));
+     for (i=0; i<nMatrices+1; i++){
+      matrices[i] = (int *)calloc(3,sizeof(int));
+    }
+    llenarDimensiones(c,nMatrices,matrices);
+	
 }

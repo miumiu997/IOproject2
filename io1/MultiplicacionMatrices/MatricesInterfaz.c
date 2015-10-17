@@ -9,10 +9,10 @@ GtkBuilder *gtkBuilder;
 GtkWidget *window;
 GtkWidget *SRWindwMatrices; // division en la que se van actualizar las dimensiones de las matrices
 GtkWidget *spinMatrices;
-int nObjetos;
+int nMatrices;
 GtkWidget ***capacidades; // capacidades son dimensiones
 GtkWidget **objetos; //objetos son matrices
-int **valores;
+int **;
 int **pesos;
 int **cantidades;
 int capacidadMochila;
