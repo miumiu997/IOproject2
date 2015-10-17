@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <inttypes.h>
-#include "logicaMochila.h"
+#include "logicaMatrices.h"
 #include <math.h>
 
 int max(int a, int b) { return (a > b)? a : b; }

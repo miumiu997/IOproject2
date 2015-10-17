@@ -2,14 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "logicaMochila.h"
+
 
 //variables globales
 GtkBuilder *gtkBuilder;
 GtkWidget *window;
-GtkWidget *SRWindwObjs;
-GtkWidget *SRWindowCapacity;
-GtkWidget *spinObjetos;
+GtkWidget *SRWindwMatrices; // division en la que se van actualizar las dimensiones de las matrices
+GtkWidget *spinMatrices;
 GtkWidget *spinCapacity;
 int nObjetos;
 GtkWidget ***capacidades;
