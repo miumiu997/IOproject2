@@ -1,0 +1,176 @@
+\documentclass{beamer}
+\usepackage{color}
+\begin{document}
+\title{Algoritmo Floyd}
+ \author{Kathy Brenes, Miuyin, Adrian Cubero}
+\date{\today}
+ \frame{\titlepage}
+ \begin{frame}
+\color{black}
+\frametitle{ALGORITMO DE LAS RUTAS M\'AS CORTAS}
+El algoritmo de Floyd-Warshall, descrito en 1959 por Bernard Roy.
+\\Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos ponderados.
+\\El algoritmo encuentra el camino entre todos los pares de vértices en una única ejecución.
+\\ El algoritmo de Floyd-Warshall es un ejemplo de programación dinámica.
+\end{frame} 
+\frame{\frametitle{D0}
+ \begin{center}
+ \begin{tabular}{|l |l |l |l |l |} \hline
+9999&6&9999&4&7\\ \hline
+9&9999&7&9999&9999\\ \hline
+9999&5&9999&9999&14\\ \hline
+8&1&9999&9999&15\\ \hline
+2&9999&2&19&9999\\ \hline
+\end{tabular}
+\end{center}
+ }
+\frame{\frametitle{DN}
+ \begin{center}
+ \begin{tabular}{|l |l |l |l |l |} \hline
+0 &5 &9 &4 &7 \\ \hline
+9 &0 &7 &13 &16 \\ \hline
+14 &5 &0 &18 &14 \\ \hline
+8 &1 &8 &0 &15 \\ \hline
+2 &7 &2 &6 &0 \\ \hline
+\end{tabular}
+\end{center}
+ }
+\frame{\frametitle{P}
+ \begin{center}
+ \begin{tabular}{|l |l |l |l |l |} \hline
+0&4&5&0&0\\ \hline
+0&0&0&1&1\\ \hline
+2&0&0&2&0\\ \hline
+0&0&2&0&0\\ \hline
+0&3&0&1&0\\ \hline
+\end{tabular}
+\end{center}
+ }
+\frame{\frametitle{rutas}
+ nodo:1 - nodo:1
+\newline
+nodo:1 - nodo:2
+\newline
+1-4-2-
+\newline
+nodo:1 - nodo:3
+\newline
+1-5-3-
+\newline
+nodo:1 - nodo:4
+\newline
+nodo:1 - nodo:5
+\newline
+nodo:2 - nodo:1
+\newline
+nodo:2 - nodo:2
+\newline
+nodo:2 - nodo:3
+\newline
+nodo:2 - nodo:4
+\newline
+2-1-4-
+\newline
+nodo:2 - nodo:5
+\newline
+2-1-5-
+\newline
+nodo:3 - nodo:1
+\newline
+3-2-1-
+\newline
+nodo:3 - nodo:2
+\newline
+nodo:3 - nodo:3
+\newline
+nodo:3 - nodo:4
+\newline
+3-2-4-
+\newline
+3-2-1-4-
+\newline
+nodo:3 - nodo:5
+\newline
+nodo:4 - nodo:1
+\newline
+nodo:4 - nodo:2
+\newline
+nodo:4 - nodo:3
+\newline
+4-2-3-
+\newline
+nodo:4 - nodo:4
+\newline
+nodo:4 - nodo:5
+\newline
+nodo:5 - nodo:1
+\newline
+nodo:5 - nodo:2
+\newline
+5-3-2-
+\newline
+nodo:5 - nodo:3
+\newline
+nodo:5 - nodo:4
+\newline
+5-1-4-
+\newline
+nodo:5 - nodo:5
+\newline
+}
+\frame{\frametitle{D1}
+ \begin{center}
+ \begin{tabular}{|l |l |l |l |l |} \hline
+0&6&9999&4&7\\ \hline
+9&0&7&13&16\\ \hline
+9999&5&0&9999&14\\ \hline
+8&1&9999&0&15\\ \hline
+2&8&2&6&0\\ \hline
+\end{tabular}
+\end{center}
+ }
+\frame{\frametitle{D2}
+ \begin{center}
+ \begin{tabular}{|l |l |l |l |l |} \hline
+0&6&13&4&7\\ \hline
+9&0&7&13&16\\ \hline
+14&5&0&18&14\\ \hline
+8&1&8&0&15\\ \hline
+2&8&2&6&0\\ \hline
+\end{tabular}
+\end{center}
+ }
+\frame{\frametitle{D3}
+ \begin{center}
+ \begin{tabular}{|l |l |l |l |l |} \hline
+0&6&13&4&7\\ \hline
+9&0&7&13&16\\ \hline
+14&5&0&18&14\\ \hline
+8&1&8&0&15\\ \hline
+2&7&2&6&0\\ \hline
+\end{tabular}
+\end{center}
+ }
+\frame{\frametitle{D4}
+ \begin{center}
+ \begin{tabular}{|l |l |l |l |l |} \hline
+0&5&12&4&7\\ \hline
+9&0&7&13&16\\ \hline
+14&5&0&18&14\\ \hline
+8&1&8&0&15\\ \hline
+2&7&2&6&0\\ \hline
+\end{tabular}
+\end{center}
+ }
+\frame{\frametitle{D5}
+ \begin{center}
+ \begin{tabular}{|l |l |l |l |l |} \hline
+0&5&9&4&7\\ \hline
+9&0&7&13&16\\ \hline
+14&5&0&18&14\\ \hline
+8&1&8&0&15\\ \hline
+2&7&2&6&0\\ \hline
+\end{tabular}
+\end{center}
+ }
+\end{document}
