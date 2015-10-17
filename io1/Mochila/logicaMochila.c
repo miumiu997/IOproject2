@@ -121,6 +121,7 @@ int knapSackBeamer(int** resultado,int max, int numero, int** colores){
 
     fprintf(fp,"\\documentclass[10]{beamer} \n");
     fprintf(fp,"\\usepackage[T1]{fontenc} \n");
+    fprintf(fp,"\\usepackage{lmodern}\n");
     fprintf(fp,"\\usepackage[spanish]{babel}\n");
     fprintf(fp,"\\usepackage{fancyhdr}\n");
     fprintf(fp,"\\usepackage{xcolor}\n");

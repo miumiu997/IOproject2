@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.17)  17 OCT 2015 15:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.17)  17 OCT 2015 15:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1506,7 +1506,7 @@ LaTeX Info: Redefining \% on input line 31.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 35.
 
-Overfull \vbox (65.91264pt too high) detected at line 35
+Overfull \vbox (61.91264pt too high) detected at line 35
  []
 
 [1
@@ -1556,7 +1556,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 62.
 Here is how much of TeX's memory you used:
  16521 strings out of 493304
  297700 string characters out of 6139870
- 383901 words of memory out of 5000000
+ 383915 words of memory out of 5000000
  19586 multiletter control sequences out of 15000+600000
  27242 words of font info for 25 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1566,7 +1566,7 @@ f/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmss10.p
 fb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/t
 ype1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb
 >
-Output written on arbolesB.pdf (6 pages, 95870 bytes).
+Output written on arbolesB.pdf (6 pages, 95875 bytes).
 PDF statistics:
  189 PDF objects out of 1000 (max. 8388607)
  169 compressed objects within 2 object streams

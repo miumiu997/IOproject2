@@ -1,5 +1,6 @@
 \documentclass[10]{beamer} 
 \usepackage[T1]{fontenc} 
+\usepackage{lmodern}
 \usepackage[spanish]{babel}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
@@ -19,7 +20,7 @@
 \title{{\color{WHITE} \large \textbf{INSTITUTO TECNOL\'OGICO DE COSTA RICA}} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{ESCUELA DE INGENIER\'IA EN COMPUTACI'ON }} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{INVESTIGACI\'ON DE OPERACIONES  }} \\ \vspace{0.02cm} 
-{\color{WHITE} \large \textbf{ALGORITMO DE LA MOCHILA - KNAPSACK  }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{ALGORITMO PARA LA \\ MULTIPLICACI\'ON DE MATRICES  }} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{I SEMESTRE  }}\\ \vspace{0.02cm}
 {\color{WHITE} \large \textbf{PROFESOR}} \\ \vspace{0.02cm}
 {\color{WHITE} \large DR. FRANCISCO J. TORRES ROJAS  } \\ \vspace{0.02cm}
@@ -34,19 +35,27 @@
 \end{frame} 
 \begin{frame}
 \color{white}
-\frametitle{ALGORITMO DE LA MOCHILA}
-El algoritmo de Floyd-Warshall, descrito en 1959 por Bernard Roy.
-\\Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos ponderados.
-\\El algoritmo encuentra el camino entre todos los pares de vértices en una única ejecución.
-\\ El algoritmo de Floyd-Warshall es un ejemplo de programación dinámica.
+\frametitle{ALGORITMO PARA LA MULTIPLICACI\'ON DE DOS MATRICES}
+El n\'umero de columnas de la primera deben ser iguales al n\'umero de filas de la segunda.
+\\ Si las dimensiones de la primera son n * k la segunda debe ser k * m.
+\\ La matriz resultante es n * m.
 \end{frame} 
 \begin{frame}
 \color{white}
-\frametitle{ROBERT W. FLOYD}
-Cient\'ifico de la computaci\'on USA (1936-2001)\\
-Bachiller en Artes Liberales y F\'isica. \\ Operador de computadoras (1960). \\ Gan\'o un premio Turing en 1978.
+\frametitle{PROPIEDADES DE LA MULTIPLICACI\'ON DE MATRICES}
+Se realizan productos puntos entre vectores fila y vectores columna para encontrar cada entrada de la matriz resultante.
+\\ No es conmutativa.
+\\Un \'arbol binario no vac\'io, de ra\'iz R.
+\\ Total de multiplicaciones requeridas? \\ n*k*m  \\ \t con $M_1:n*k; M_2: k*m$.
 \end{frame} 
-\begin{frame}\frametitle{KnapSack}
+\begin{frame}
+\color{white}
+\frametitle{MULTIPLICACI'ON EN CADENA}
+Se pueden multiplicar varias matrices en sucesi\'on.
+\\ No es conmutativa, pero si asociativa, es decir, se puede hacer las multiplicaciones en diversos \'ordenes.
+\\ Distinto orden implica distinto costo.
+\end{frame} 
+\begin{frame}\frametitle{VALORES INICIALES}
  \color{white}
 \end{frame} 
 \end{document}

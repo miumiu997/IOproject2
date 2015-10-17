@@ -34,7 +34,7 @@ int ArbolesBBeamer(void){
     fprintf(fp,"\\title{{\\color{WHITE} \\large \\textbf{INSTITUTO TECNOL\\'OGICO DE COSTA RICA}} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{ESCUELA DE INGENIER\\'IA EN COMPUTACI'ON }} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{INVESTIGACI\\'ON DE OPERACIONES  }} \\\\ \\vspace{0.02cm} \n");
-    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ALGORITMO DE A\\'RBOLES BINARIOS DE B\\'USQUEDAS \\'OPTIMAS  }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ALGORITMO DE A\\'RBOLES BINARIOS DE \\\\ B\\'USQUEDAS \\'OPTIMAS  }} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{I SEMESTRE  }}\\\\ \\vspace{0.02cm}\n"); 
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{PROFESOR}} \\\\ \\vspace{0.02cm}\n"); 
     fprintf(fp,"{\\color{WHITE} \\large DR. FRANCISCO J. TORRES ROJAS  } \\\\ \\vspace{0.02cm}\n"); 

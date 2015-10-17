@@ -6,12 +6,18 @@
 
 
 int MatricesBeamer(void){
+    /*
+    Genera el codigo beamer necesario para la estructuracion de la presentacion.
+    Autores: Kathy Brenes, Miuyin Yong, Adrian Cubero.
+    Creacion: 16/10/2015
+    */
     FILE* fp;
     fp = fopen("matrices.tex", "w");
 
 
     fprintf(fp,"\\documentclass[10]{beamer} \n");
     fprintf(fp,"\\usepackage[T1]{fontenc} \n");
+    fprintf(fp,"\\usepackage{lmodern}\n");
     fprintf(fp,"\\usepackage[spanish]{babel}\n");
     fprintf(fp,"\\usepackage{fancyhdr}\n");
     fprintf(fp,"\\usepackage{xcolor}\n");
@@ -33,7 +39,7 @@ int MatricesBeamer(void){
     fprintf(fp,"\\title{{\\color{WHITE} \\large \\textbf{INSTITUTO TECNOL\\'OGICO DE COSTA RICA}} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{ESCUELA DE INGENIER\\'IA EN COMPUTACI'ON }} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{INVESTIGACI\\'ON DE OPERACIONES  }} \\\\ \\vspace{0.02cm} \n");
-    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ALGORITMO DE LA MOCHILA - KNAPSACK  }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ALGORITMO PARA LA \\\\ MULTIPLICACI\\'ON DE MATRICES  }} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{I SEMESTRE  }}\\\\ \\vspace{0.02cm}\n"); 
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{PROFESOR}} \\\\ \\vspace{0.02cm}\n"); 
     fprintf(fp,"{\\color{WHITE} \\large DR. FRANCISCO J. TORRES ROJAS  } \\\\ \\vspace{0.02cm}\n"); 
@@ -49,24 +55,36 @@ int MatricesBeamer(void){
 
     fprintf(fp,"\\begin{frame}\n");
     fprintf(fp,"\\color{white}\n");
-    fprintf(fp,"\\frametitle{ALGORITMO DE LA MOCHILA}\n");
-    fprintf(fp,"El algoritmo de Floyd-Warshall, descrito en 1959 por Bernard Roy.\n");
-    fprintf(fp,"\\\\Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos ponderados.\n"); 
-    fprintf(fp,"\\\\El algoritmo encuentra el camino entre todos los pares de vértices en una única ejecución.\n");
-    fprintf(fp,"\\\\ El algoritmo de Floyd-Warshall es un ejemplo de programación dinámica.\n");
+    fprintf(fp,"\\frametitle{ALGORITMO PARA LA MULTIPLICACI\\'ON DE DOS MATRICES}\n");
+    fprintf(fp,"El n\\'umero de columnas de la primera deben ser iguales al n\\'umero de filas de la segunda.\n");
+    fprintf(fp,"\\\\ Si las dimensiones de la primera son n * k la segunda debe ser k * m.\n");
+    fprintf(fp,"\\\\ La matriz resultante es n * m.\n");
     fprintf(fp,"\\end{frame} \n");
 
     fprintf(fp,"\\begin{frame}\n");
     fprintf(fp,"\\color{white}\n");
-    fprintf(fp,"\\frametitle{ROBERT W. FLOYD}\n");
-    fprintf(fp,"Cient\\'ifico de la computaci\\'on USA (1936-2001)\\\\\n");
-    fprintf(fp,"Bachiller en Artes Liberales y F\\'isica. \\\\ Operador de computadoras (1960). \\\\ Gan\\'o un premio Turing en 1978.\n");
+    fprintf(fp,"\\frametitle{PROPIEDADES DE LA MULTIPLICACI\\'ON DE MATRICES}\n");
+    fprintf(fp,"Se realizan productos puntos entre vectores fila y vectores columna para encontrar cada entrada de la matriz resultante.\n");
+    fprintf(fp,"\\\\ No es conmutativa.\n"); 
+    fprintf(fp,"\\\\Un \\'arbol binario no vac\\'io, de ra\\'iz R.\n");
+    fprintf(fp,"\\\\ Total de multiplicaciones requeridas? \\\\ n*k*m  \\\\ \\t con $M_1:n*k; M_2: k*m$.\n");
     fprintf(fp,"\\end{frame} \n");
 
-    fprintf(fp,"\\begin{frame}\\frametitle{KnapSack}\n ");
+
+    fprintf(fp,"\\begin{frame}\n");
     fprintf(fp,"\\color{white}\n");
-   
+    fprintf(fp,"\\frametitle{MULTIPLICACI\\'ON EN CADENA}\n");
+    fprintf(fp,"Se pueden multiplicar varias matrices en sucesi\\'on.\n");
+    fprintf(fp,"\\\\ No es conmutativa, pero si asociativa, es decir, se puede hacer las multiplicaciones en diversos \\'ordenes.\n"); 
+    fprintf(fp,"\\\\ Distinto orden implica distinto costo.\n"); 
     fprintf(fp,"\\end{frame} \n");
+
+    fprintf(fp,"\\begin{frame}\\frametitle{VALORES INICIALES}\n ");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\end{frame} \n");
+   
+   
+   
 
     fprintf(fp,"\\end{document}");
     fclose(fp);
