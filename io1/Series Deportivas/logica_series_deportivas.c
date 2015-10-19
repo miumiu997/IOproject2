@@ -118,7 +118,7 @@ void deportesBeamer(){
     fprintf(fp,"\\title{{\\color{WHITE} \\large \\textbf{INSTITUTO TECNOL\\'OGICO DE COSTA RICA}} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{ESCUELA DE INGENIER\\'IA EN COMPUTACI'ON }} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{INVESTIGACI\\'ON DE OPERACIONES  }} \\\\ \\vspace{0.02cm} \n");
-    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ALGORITMO PARA LA \\\\ MULTIPLICACI\\'ON DE MATRICES  }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ALGORITMO PARA LAS \\\\ SERIES DEPORTIVAS  }} \\\\ \\vspace{0.02cm} \n");
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{I SEMESTRE  }}\\\\ \\vspace{0.02cm}\n"); 
     fprintf(fp,"{\\color{WHITE} \\large \\textbf{PROFESOR}} \\\\ \\vspace{0.02cm}\n"); 
     fprintf(fp,"{\\color{WHITE} \\large DR. FRANCISCO J. TORRES ROJAS  } \\\\ \\vspace{0.02cm}\n"); 
@@ -134,30 +134,38 @@ void deportesBeamer(){
 
     fprintf(fp,"\\begin{frame}\n");
     fprintf(fp,"\\color{white}\n");
-    fprintf(fp,"\\frametitle{ALGORITMO PARA LA MULTIPLICACI\\'ON DE DOS MATRICES}\n");
-    fprintf(fp,"El n\\'umero de columnas de la primera deben ser iguales al n\\'umero de filas de la segunda.\n");
-    fprintf(fp,"\\\\ Si las dimensiones de la primera son n * k la segunda debe ser k * m.\n");
-    fprintf(fp,"\\\\ La matriz resultante es n * m.\n");
+    fprintf(fp,"\\frametitle{ALGORITMO PARA SERIE DEPORTIVAS}\n");
+    fprintf(fp,"Entre dos equipos A y B se dice que A tiene una posibilidad p de ganar y B tiene una posibilidad q = 1-p de ganar.\n");
+    fprintf(fp,"\\\\ Cu\\'al es la probabilidad de que el grupo A sea campe\\'on ?\n"); 
+    fprintf(fp,"\\\\Este algoritmo permite contestar esa pregunta.\n");
     fprintf(fp,"\\end{frame} \n");
 
     fprintf(fp,"\\begin{frame}\n");
     fprintf(fp,"\\color{white}\n");
-    fprintf(fp,"\\frametitle{PROPIEDADES DE LA MULTIPLICACI\\'ON DE MATRICES}\n");
-    fprintf(fp,"Se realizan productos puntos entre vectores fila y vectores columna para encontrar cada entrada de la matriz resultante.\n");
-    fprintf(fp,"\\\\ No es conmutativa.\n"); 
-    fprintf(fp,"\\\\Un \\'arbol binario no vac\\'io, de ra\\'iz R.\n");
-    fprintf(fp,"\\\\ Total de multiplicaciones requeridas? \\\\ n*k*m  \\\\ \\t con $M_1:n*k; M_2: k*m$.\n");
+    fprintf(fp,"\\frametitle{PROPIEDADES DE LAS SERIES DEPORTIVAS}\n");
+    fprintf(fp,"La cantidad de filas y columnas deben ser igual a la canitdad de partidos comenzando desde 0.\n");
+    fprintf(fp,"\\\\ Un par ordenado ser\\'ia (i,j) donde i representa la cantidad de partidos que le faltan a A para ganar y j representa la cantiad de partidos que le faltan a B para ganar.\n"); 
+    fprintf(fp,"\\\\El estado inicial ser\\'ia (cantidad de partidos, cantidad de partidos).\n");
+    fprintf(fp,"\\\\ En cada una de esas casillas se calulara la probabilidad que tiene el equipo A en ganar (cada probabilidad es independiente).\n");
     fprintf(fp,"\\end{frame} \n");
 
 
     fprintf(fp,"\\begin{frame}\n");
     fprintf(fp,"\\color{white}\n");
-    fprintf(fp,"\\frametitle{MULTIPLICACI\\'ON EN CADENA}\n");
-    fprintf(fp,"Se pueden multiplicar varias matrices en sucesi\\'on.\n");
-    fprintf(fp,"\\\\ No es conmutativa, pero si asociativa, es decir, se puede hacer las multiplicaciones en diversos \\'ordenes.\n"); 
-    fprintf(fp,"\\\\ Distinto orden implica distinto costo.\n"); 
+    fprintf(fp,"\\frametitle{FUNCIONES}\n");
+    fprintf(fp,"La funci\\'on que regresa la probabilidad de que A sea campi\\'on se define como:\n");
+    fprintf(fp,"\\\\F(i,j)=p*F(i-1,j) + q*F(i, j-1) \n"); 
+    fprintf(fp,"\\\\ Casos triviales: F(0,j) = 1    F(i,0) = 0\n"); 
     fprintf(fp,"\\end{frame} \n");
 
+    fprintf(fp,"\\begin{frame}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\frametitle{VENTAJA LOCAL}\n");
+    fprintf(fp,"Los equipos tienden a jugar mejor en casa en ciertos deportes.\n");
+    fprintf(fp,"\\\\Por esa raz\\'on se establecen dos probabilidades Ph y Pr. \n"); 
+    fprintf(fp,"\\\\ Ph siendo en casa y Pr de visita, las probabilidades del equipo contrario son los complementos.\n"); 
+    fprintf(fp,"\\\\ Dada una serie de cuantos equipos ocurriran en casa, se calculan cu\\'al de las dos probabildiades se tiene que usar.\n"); 
+    fprintf(fp,"\\end{frame} \n");
     fprintf(fp,"\\end{document}");
     fclose(fp);
     system("pdflatex deportes.tex");

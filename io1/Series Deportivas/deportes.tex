@@ -20,7 +20,7 @@
 \title{{\color{WHITE} \large \textbf{INSTITUTO TECNOL\'OGICO DE COSTA RICA}} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{ESCUELA DE INGENIER\'IA EN COMPUTACI'ON }} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{INVESTIGACI\'ON DE OPERACIONES  }} \\ \vspace{0.02cm} 
-{\color{WHITE} \large \textbf{ALGORITMO PARA LA \\ MULTIPLICACI\'ON DE MATRICES  }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{ALGORITMO PARA LAS \\ SERIES DEPORTIVAS  }} \\ \vspace{0.02cm} 
 {\color{WHITE} \large \textbf{I SEMESTRE  }}\\ \vspace{0.02cm}
 {\color{WHITE} \large \textbf{PROFESOR}} \\ \vspace{0.02cm}
 {\color{WHITE} \large DR. FRANCISCO J. TORRES ROJAS  } \\ \vspace{0.02cm}
@@ -35,24 +35,32 @@
 \end{frame} 
 \begin{frame}
 \color{white}
-\frametitle{ALGORITMO PARA LA MULTIPLICACI\'ON DE DOS MATRICES}
-El n\'umero de columnas de la primera deben ser iguales al n\'umero de filas de la segunda.
-\\ Si las dimensiones de la primera son n * k la segunda debe ser k * m.
-\\ La matriz resultante es n * m.
+\frametitle{ALGORITMO PARA SERIE DEPORTIVAS}
+Entre dos equipos A y B se dice que A tiene una posibilidad p de ganar y B tiene una posibilidad q = 1-p de ganar.
+\\ Cu\'al es la probabilidad de que el grupo A sea campe\'on ?
+\\Este algoritmo permite contestar esa pregunta.
 \end{frame} 
 \begin{frame}
 \color{white}
-\frametitle{PROPIEDADES DE LA MULTIPLICACI\'ON DE MATRICES}
-Se realizan productos puntos entre vectores fila y vectores columna para encontrar cada entrada de la matriz resultante.
-\\ No es conmutativa.
-\\Un \'arbol binario no vac\'io, de ra\'iz R.
-\\ Total de multiplicaciones requeridas? \\ n*k*m  \\ \t con $M_1:n*k; M_2: k*m$.
+\frametitle{PROPIEDADES DE LAS SERIES DEPORTIVAS}
+La cantidad de filas y columnas deben ser igual a la canitdad de partidos comenzando desde 0.
+\\ Un par ordenado ser\'ia (i,j) donde i representa la cantidad de partidos que le faltan a A para ganar y j representa la cantiad de partidos que le faltan a B para ganar.
+\\El estado inicial ser\'ia (cantidad de partidos, cantidad de partidos).
+\\ En cada una de esas casillas se calulara la probabilidad que tiene el equipo A en ganar (cada probabilidad es independiente).
 \end{frame} 
 \begin{frame}
 \color{white}
-\frametitle{MULTIPLICACI\'ON EN CADENA}
-Se pueden multiplicar varias matrices en sucesi\'on.
-\\ No es conmutativa, pero si asociativa, es decir, se puede hacer las multiplicaciones en diversos \'ordenes.
-\\ Distinto orden implica distinto costo.
+\frametitle{FUNCIONES}
+La funci\'on que regresa la probabilidad de que A sea campi\'on se define como:
+\\F(i,j)=p*F(i-1,j) + q*F(i, j-1) 
+\\ Casos triviales: F(0,j) = 1    F(i,0) = 0
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{VENTAJA LOCAL}
+Los equipos tienden a jugar mejor en casa en ciertos deportes.
+\\Por esa raz\'on se establecen dos probabilidades Ph y Pr. 
+\\ Ph siendo en casa y Pr de visita, las probabilidades del equipo contrario son los complementos.
+\\ Dada una serie de cuantos equipos ocurriran en casa, se calculan cu\'al de las dos probabildiades se tiene que usar.
 \end{frame} 
 \end{document}
