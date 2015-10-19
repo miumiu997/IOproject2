@@ -2,12 +2,17 @@
 #include <stdlib.h> 
 #include "logica_series_deportivas.h" 
 
-float serie_deportiva(int num_partidos, float probaH, float probaV, int** serie, float**resultado){ 
+float serie_deportiva(int num_partidos, float probaH, float probaV, int** serie, float**resultado, int tamanio_serie){ 
 	 
-	int i, j, k;  
-	float proba2H = 1 - probaH; 
-	float proba2V = 1 - probaV; 
+	int i, j, k;   
+	float usarproba1; 
+	float usarproba2;
+	int partido_actual;
+	float proba2H = 1 - probaV; 
+	float proba2V = 1 - probaH;  
 	printf("ProbaH %e \n", probaH);
+	printf("Serie %d \n", serie[0]); 
+	printf("Serie %d \n", serie[1]); 
 
 	for(i = 0; i<= num_partidos; i++){ 
 		for(j = 0; j <= num_partidos; j++){
@@ -32,15 +37,46 @@ float serie_deportiva(int num_partidos, float probaH, float probaV, int** serie,
 				resultado[i][j] = 0;
 			}  
 
-			else{ 
-				resultado[i][j] = resultado[i-1][j] * probaH + resultado[i][j-1] * probaV; 
-				printf("resultado[i-1][j] %e \b", resultado[i-1][j]);
-				printf("probaH %e \b", probaH);
-				printf("resultado[i][j-1] %e \b", resultado[i][j-1]); 
-				printf("probaV %e \n", probaV);
-			}
+			else{  
+				partido_actual = (num_partidos - j) + (num_partidos - i) + 1; 
+				printf("Partido actual %d = \b", partido_actual);   
+				printf(" (%d \b", num_partidos);
+				printf("- %d) \b", j); 
+				printf("+ (%d \b", num_partidos); 
+				printf("- %d) \b", i);  
+				printf("+ 1 \b");
+ 
+				for(k = 0; k < tamanio_serie; k++){ 
+					if(k == 0){
+						if(partido_actual <= serie[k]){  
+							usarproba1 = probaH; 
+							usarproba2 = proba2V;
+						}
+					}
+					else{ 
+						if(partido_actual <= serie[k] && partido_actual > serie[k-1] && k%2 == 0){
+							usarproba1 = probaH; 
+							usarproba2 = proba2V;
+						} 
+						else if(partido_actual <= serie[k] && partido_actual > serie[k-1]){ 
+							usarproba1 = probaV; 
+							usarproba2 = proba2H;
+						}
+					} 
+					
+				}
 
+				resultado[i][j] = resultado[i-1][j] * usarproba1 + resultado[i][j-1] * usarproba2; 
+				printf(" | resultado %e = \b", resultado[i][j]); 
+				printf(" %e \b", resultado[i-1][j]);
+				printf("* %e \b", usarproba1);
+				printf("+ %e \b", resultado[i][j-1]); 
+				printf(" * %e \n", usarproba2);  
+
+			} 
 		}
+		printf(" ------------------------------------------- \n"); 
+
 	} 
 
 
@@ -53,13 +89,15 @@ float serie_deportiva(int num_partidos, float probaH, float probaV, int** serie,
 void main(){   
 	int i;
 	int num_partidos = 4;  
-	float probaH = 0.5; 
-	float probaV = 0.5; 
-	int **serie= (int *)calloc(num_partidos+1,sizeof(int));
+	float probaH = 0.52; 
+	float probaV = 0.48;  
+	int **serie= (int *)calloc(num_partidos+1,sizeof(int)); 
+	serie[0] = 4; 
+	serie[1] = 7;    
+	int tamanio_serie = 2; 
 	int **resultado = (int **)calloc(num_partidos+1,sizeof(int *));
     for (i=0; i<num_partidos+1; i++)
-         resultado[i] = (int *)calloc(num_partidos+1,sizeof(int)); 
-	serie_deportiva(num_partidos, probaH, probaV, serie, resultado);
-
+         resultado[i] = (int *)calloc(num_partidos+1,sizeof(int));  
+	serie_deportiva(num_partidos, probaH, probaV, serie, resultado, tamanio_serie);
 	printf("holas");
 }
