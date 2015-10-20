@@ -103,7 +103,7 @@ void llenarDimensiones(char* nameMat,int nMatrices ,int** matrices){
     for (a=0; a<nMatrices; a++){
       tablaM[a] = (int *)calloc(2,sizeof(int));
     }
-    printf("Voy al beamer\n");
+    //printf("Voy al beamer\n");
     MatricesBeamer(nameMat,nMatrices,matrices,dimensiones,tablaM);
     //crearTablaM(nameMat,nMatrices,dimensiones);
     
@@ -211,7 +211,7 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
     fprintf(fp,"\\\\ \n \\hline \\hline \n ");
 
     //Imprimir las dimensiones de cada matriz
-    /*for(i=0; i<nMatrices*2;i++){
+    for(i=0; i<nMatrices*2;i++){
         if(i==0){
             fprintf(fp,"$%dx%d$",matrices[i][0],matrices[i][1]);
         }else{
