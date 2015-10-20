@@ -10,7 +10,7 @@ GtkWidget *window;
 GtkWidget *SRWindwMatrices; // division en la que se van actualizar las dimensiones de las matrices
 GtkWidget *spinMatrices;
 int nMatrices;
-GtkWidget ***capacidades; // capacidades son dimensiones
+GtkWidget ***Matrices; // capacidades son dimensiones
 GtkWidget **objetos; //objetos son matrices
 int **;
 int **pesos;
