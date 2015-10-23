@@ -63,8 +63,7 @@ void crearTablaM(char* nameMat,int nMatrices ,int* dimensiones){
     }//ennd for filas
 	//MatricesBeamer(nameMat,nMatrices,matrices,matrizM);*/
 }
-int* crearVDimensiones(int nMatrices ,int** matrices){
-	int *dimensiones = (int **)calloc(nMatrices*2,sizeof(int *));
+int* crearVDimensiones(int *dimensiones,int nMatrices ,int** matrices){
 	int i=0;
 	int nDimensiones=0;
 	for (i = 0; i < nMatrices; i++)
@@ -89,17 +88,26 @@ void llenarDimensiones(char* nameMat,int nMatrices ,int** matrices){
     **/
     int i;
     int j;
-    int *dimensiones = (int **)calloc(nMatrices*2,sizeof(int *));
+    int *dimensiones = (int **)calloc(nMatrices+2,sizeof(int *));
+    
     for(i=0; i<nMatrices;i++){
         printf("Filas de M[%d]\n",i );
         scanf("%d",&matrices[i][0]);
         printf("Columnas de M[%d]\n",i );
         scanf("%d",&matrices[i][1]);
     }
-    dimensiones= crearVDimensiones(nMatrices,matrices);
-   
+    dimensiones= crearVDimensiones(dimensiones,nMatrices,matrices);
+
+    printf("\nDimensiones\n");
+    for(i=0; i<nMatrices+1;i++){
+        printf("d_%d: %d\n",i, dimensiones[i]);
+    }
+
+    int a=0;
+    scanf("%d",&a);
+       
     int **tablaM = (int **)calloc(nMatrices+1,sizeof(int *));
-	int a=0;
+	a=0;
     for (a=0; a<nMatrices; a++){
       tablaM[a] = (int *)calloc(2,sizeof(int));
     }
@@ -211,7 +219,7 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
     fprintf(fp,"\\\\ \n \\hline \\hline \n ");
 
     //Imprimir las dimensiones de cada matriz
-    /*for(i=0; i<nMatrices*2;i++){
+    for(i=0; i<nMatrices*2;i++){
         if(i==0){
             fprintf(fp,"$%dx%d$",matrices[i][0],matrices[i][1]);
         }else{
