@@ -219,25 +219,21 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
     fprintf(fp,"\\\\ \n \\hline \\hline \n ");
 
     //Imprimir las dimensiones de cada matriz
-    for(i=0; i<nMatrices*2;i++){
+    for(i=0; i<nMatrices;i++){
         if(i==0){
-            fprintf(fp,"$%dx%d$",matrices[i][0],matrices[i][1]);
+            fprintf(fp,"$%dx%d$",dimensiones[i],dimensiones[i+1]);
         }else{
-            fprintf(fp," & $%dx%d$  ",matrices[i][0],matrices[i][1]);
-        }//end if
+            
+        }
+        
     }//end for nombre de la matriz*/
     fprintf(fp," \\\\ \n "); 
 
     //imprimir los d
-    int ds= nMatrices*2;
     i=0;
-    while(i<ds){
-        if(i==0){
-            fprintf(fp,"$d_%dxd_%d$",i,i+1);
-        }else{
-            fprintf(fp," & $d_%dxd_%d$  ",i,i+1);
-        }//end if
-        i=i+2;
+    while(i<nMatrices){
+        fprintf(fp,"$d_%dxd_%d$",i,i+1);
+        i=i+1;
     }//end for nombre de la matriz
     fprintf(fp," \n ");     
     fprintf(fp,"\\end{tabular}\n ");
