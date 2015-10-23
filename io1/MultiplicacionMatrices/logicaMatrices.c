@@ -4,7 +4,7 @@
 #include "logicaMatrices.h"
 #include <math.h>
 
-int calcularCnDimensiones(int nMatrices,int* dimensiones,int fila,int k,int columna){
+int calcularEntradaD(int nMatrices,int* dimensiones,int fila,int k,int columna){
 	/** Permite calcular las entradas de la tabla M,
 	donde j=i+1
 	*/
@@ -16,21 +16,23 @@ int calcularCnDimensiones(int nMatrices,int* dimensiones,int fila,int k,int colu
 
 }//end calcularDImensiones
 
-void crearTablaM(char* nameMat,int nMatrices ,int* dimensiones){
+void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
 	
-	int **tablaM = (int **)calloc(nMatrices+1,sizeof(int *));
+	int **tablaM = (int **)calloc(nMatrices+2,sizeof(int *));
 	int a=0;
-    for (a=0; a<nMatrices; a++){
+    for (a=0; a<nMatrices+2; a++){
       tablaM[a] = (int *)calloc(2,sizeof(int));
     }
     int **tablaP = (int **)calloc(nMatrices+1,sizeof(int *));
      for (a=0; a<nMatrices; a++){
       tablaP[a] = (int *)calloc(2,sizeof(int));
     }
+
     printf("Antes de llenar la matriz\n");
-    int b=0;
-    for (a=0; a<nMatrices; a++){
-    	for(b=0; b<nMatrices+1; b++){
+    int b=1;
+    a=1;
+    for (a=1; a<nMatrices+1; a++){
+    	for(b=1; b<nMatrices+1; b++){
       		tablaM[a][b] = 0;
       	}
     }
@@ -38,32 +40,43 @@ void crearTablaM(char* nameMat,int nMatrices ,int* dimensiones){
 
    int i=1;
     int j=1;
-    for (i=0; i<nMatrices+1; i++){
-    	for(j=0; j<nMatrices+1; j++){
+    for (i=1; i<nMatrices+1; i++){
+    	for(j=1; j<nMatrices+1; j++){
     		if(i==j){
     			tablaM[i][j]=0;
     			printf("llene las diagonales hasta i=%d y j=%d\n",i,j );
-    		}else if(j==i+1){
-    			tablaM[i][j]=calcularCnDimensiones(nMatrices,dimensiones,i-1,i,j);
-    		}
+    		}else if(i<j){
+    		   if(j==i+1){
+    			tablaM[i][j]=calcularEntradaD(nMatrices,dimensiones,i-1,i,j);
+    			}//end j==i+1
+    			else{
+    			tablaM[i][j]=999;
+    			}
+    		}else if(i>j){
+    			tablaM[i][j]=0;
+    		}//end if
     	}//end for columnas
       
     }//ennd for filas*/
  printf("salid del ciclo\n");
 
- 	int x=0;
- 	int y=0;
+ 	int x=1;
+ 	int y=1;
     //Imprimir MatrizM
-    for (x=0; x<nMatrices; x++){
-    	for(y=0; y<nMatrices; y++){
+    for (x=1; x<nMatrices+1; x++){
+    	for(y=1; y<nMatrices+1; y++){
     		printf("%d",tablaM[x][y]);
     		
     	}//end for columnas
         printf("\n");
     }//ennd for filas
-	//MatricesBeamer(nameMat,nMatrices,matrices,matrizM);*/
+	printf("Voy al beamer\n");
+    //MatricesBeamer(nameMat,nMatrices,matrices,dimensiones,tablaM);
 }
 int* crearVDimensiones(int *dimensiones,int nMatrices ,int** matrices){
+	/*FUncion que permite llenar el vector con las dimensiones de cada
+	matriz
+	*/
 	int i=0;
 	int nDimensiones=0;
 	for (i = 0; i < nMatrices; i++)
@@ -78,6 +91,7 @@ int* crearVDimensiones(int *dimensiones,int nMatrices ,int** matrices){
 	}
 	return(dimensiones);
 }//end CrearVDimensiones
+
 void llenarDimensiones(char* nameMat,int nMatrices ,int** matrices){
     /*
     Se llenan las dimensiones de cada matriz.
@@ -103,16 +117,7 @@ void llenarDimensiones(char* nameMat,int nMatrices ,int** matrices){
         printf("d_%d: %d\n",i, dimensiones[i]);
     }
 
-    int a=0;
-    scanf("%d",&a);
-       
-    int **tablaM = (int **)calloc(nMatrices+1,sizeof(int *));
-	a=0;
-    for (a=0; a<nMatrices; a++){
-      tablaM[a] = (int *)calloc(2,sizeof(int));
-    }
-    printf("Voy al beamer\n");
-    MatricesBeamer(nameMat,nMatrices,matrices,dimensiones,tablaM);
+    crearTablaM(nameMat,nMatrices,matrices ,dimensiones);
     //crearTablaM(nameMat,nMatrices,dimensiones);
     
 }// end LlenarDimensiones
@@ -223,16 +228,20 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
         if(i==0){
             fprintf(fp,"$%dx%d$",dimensiones[i],dimensiones[i+1]);
         }else{
-            
+            fprintf(fp,"& $%dx%d$", dimensiones[i],dimensiones[i+1]);
         }
         
     }//end for nombre de la matriz*/
     fprintf(fp," \\\\ \n "); 
 
-    //imprimir los d
+    //imprimir las letras con su repectivo indice dimensiones
     i=0;
     while(i<nMatrices){
-        fprintf(fp,"$d_%dxd_%d$",i,i+1);
+    	if(i==0){
+    		fprintf(fp," $d_%dxd_%d$",i,i+1);
+    	}else{
+        	fprintf(fp,"& $d_%dxd_%d$",i,i+1);
+        }
         i=i+1;
     }//end for nombre de la matriz
     fprintf(fp," \n ");     
@@ -244,7 +253,28 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
     fprintf(fp,"\\end{frame} \n");
    
    
-   
+    fprintf(fp,"\\begin{frame}\\frametitle{Tabla M}\n ");
+    fprintf(fp,"\\color{white}\n");
+
+    fprintf(fp,"\\begin{table}\n ");
+    fprintf(fp,"\\begin{tabular}{");
+
+    i=0;
+    for(i=0; i<nMatrices+1;i++){
+        if(i==0){
+            fprintf(fp," c");
+        }else{
+            fprintf(fp," | c ");
+        }//end else
+    }//end for generador tabla
+    fprintf(fp,"}\n \\\\  ");
+
+    fprintf(fp," \n ");     
+    fprintf(fp,"\\end{tabular}\n ");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\caption{Valores iniciales}\n ");
+    fprintf(fp,"\\end{table}\n ");
+    fprintf(fp,"\\end{frame} \n");
 
     fprintf(fp,"\\end{document}");
     fclose(fp);
