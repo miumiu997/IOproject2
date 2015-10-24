@@ -145,7 +145,7 @@ void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
     }//ennd for filas*/
     
 	printf("Voy al beamer\n");
-    MatricesBeamer(nameMat,nMatrices,matrices,dimensiones,tablaM);
+    MatricesBeamer(nameMat,nMatrices,matrices,dimensiones,tablaM,tablaP);
 }
 int* crearVDimensiones(int *dimensiones,int nMatrices ,int** matrices){
 	/*FUncion que permite llenar el vector con las dimensiones de cada
@@ -192,11 +192,11 @@ void llenarDimensiones(char* nameMat,int nMatrices ,int** matrices){
     }
 
     crearTablaM(nameMat,nMatrices,matrices ,dimensiones);
-    //crearTablaM(nameMat,nMatrices,dimensiones);
+    
     
 }// end LlenarDimensiones
 
-void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensiones,int**matrizM){
+void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensiones,int**matrizM,int**matrizP){
     /*
     Genera el codigo beamer necesario para la estructuracion de la presentacion.
     Autores: Kathy Brenes, Miuyin Yong, Adrian Cubero.
@@ -368,19 +368,18 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
     //Imprimir los valores de la tabla M
     int j=0;
     for(i=0; i<nMatrices+1;i++){
-	    for(j=1; j<nMatrices+1;j++){
+	    for(j=0; j<nMatrices+1;j++){
 	        if(j==0){
 	            fprintf(fp," %d ",i+1);
-	        }else if(j<i){
+	        }else if(j<i+1){
 	        	fprintf(fp," & ");
 	        }else{
 	            fprintf(fp,"& %d", matrizM[i+1][j]);
 	        }	        
 	    }//end for nombre de la matriz*/
-	fprintf(fp," \\\\ \n "); 
+	 fprintf(fp," \\\\ \n "); 
 	}//end primer for
-    fprintf(fp," \\\\ \n "); 
-
+    
     
     fprintf(fp," \n ");     
     fprintf(fp,"\\end{tabular}\n ");
@@ -393,6 +392,63 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
 
     //////////////////////////////////////////////////////////////////
     /*****************TABLA P***********************/
+
+
+    /* ************************************************/
+    fprintf(fp,"\\begin{frame}\\frametitle{TABLA P}\n ");
+    fprintf(fp,"\\color{white}\n");
+
+    fprintf(fp,"\\begin{table}\n ");
+    fprintf(fp,"\\begin{tabular}{");
+     
+   /**Estructura de la tabla****/
+    for(i=0; i<nMatrices+1;i++){
+        if(i==0){
+            fprintf(fp," c");
+        }else{
+            fprintf(fp," | c ");
+        }//end else
+    }//end for generador tabla
+    fprintf(fp,"}\n \\\\  ");
+    //termina la cantidad de columnas que va tener la tabla
+    //Imprimir nombres de variables
+    
+    for(i=0; i<nMatrices+1;i++){
+        if(i==0){
+            fprintf(fp," ");
+        }else{
+            fprintf(fp," & %d  ", i);
+        }//end if
+    }//end for nombre de la matriz
+    fprintf(fp,"\\\\ \n \\hline \\hline \n ");
+
+    //Imprimir los valores de la tabla M
+    j=0;
+    for(i=0; i<nMatrices+1;i++){
+	    for(j=0; j<nMatrices+1;j++){
+	        if(j==0){
+	            fprintf(fp," %d ",i+1);
+	        }else if(j<i+2){
+	        	fprintf(fp," & ");
+	        }else{
+	            fprintf(fp,"& %d", matrizP[i+1][j]);
+	        }	        
+	    }//end for nombre de la matriz*/
+	 fprintf(fp," \\\\ \n "); 
+	}//end primer for
+    
+    
+    fprintf(fp," \n ");     
+    fprintf(fp,"\\end{tabular}\n ");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\caption{Tabla P}\n ");
+    fprintf(fp,"\\end{table}\n ");
+
+    fprintf(fp,"\\end{frame} \n");
+
+
+
+
 
     fprintf(fp,"\\end{document}");
     fclose(fp);
