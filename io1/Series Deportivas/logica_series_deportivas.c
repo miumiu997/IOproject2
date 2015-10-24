@@ -81,14 +81,12 @@ float serie_deportiva(int num_partidos, float probaH, float probaV, int** serie,
 
 	} 
 
-	deportesBeamer();
 	printf("resultado final %.4f \b", resultado[num_partidos][num_partidos]); 
 	return resultado[num_partidos][num_partidos]; 
 
-
 } 
 
-void deportesBeamer(){
+void deportesBeamer(int num_partidos, float probaH, float probaV, int** serie, float**resultado, int tamanio_serie){
 	printf("HOLIZ BEAMER"); 
 	FILE* fp;
     fp = fopen("deportes.tex", "w");
@@ -165,7 +163,150 @@ void deportesBeamer(){
     fprintf(fp,"\\\\Por esa raz\\'on se establecen dos probabilidades Ph y Pr. \n"); 
     fprintf(fp,"\\\\ Ph siendo en casa y Pr de visita, las probabilidades del equipo contrario son los complementos.\n"); 
     fprintf(fp,"\\\\ Dada una serie de cuantos equipos ocurriran en casa, se calculan cu\\'al de las dos probabildiades se tiene que usar.\n"); 
-    fprintf(fp,"\\end{frame} \n");
+    fprintf(fp,"\\end{frame} \n");  
+
+    fprintf(fp,"\\begin{frame}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\frametitle{VALORES INICIALES}\n"); 
+    fprintf(fp,"Cantidad de partidos: $%d $ \\\\", num_partidos); 
+    fprintf(fp,"Probabilidad Home: $%.4f $ \\\\", probaH); 
+    fprintf(fp,"Probabilidad Road: $%.4f $ \\\\", probaV); 
+
+    int i, j, k; 
+    for(i = 0; i < tamanio_serie; i++){  
+    	if(i == 0){ 
+    		fprintf(fp,"Serie: %d , ", serie[i]); 
+    	}  
+    	else if(i == tamanio_serie-1){ 
+    		fprintf(fp,"%d ", serie[i]); 
+    	} 
+    	else{
+    		fprintf(fp,"%d , ", serie[i]); 
+    	}
+    }
+    fprintf(fp,"\\end{frame} \n");  
+
+    fprintf(fp,"\\begin{frame}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\frametitle{RESULTADO}\n"); 
+
+	float usarproba1; 
+	float usarproba2;
+	int partido_actual;
+	float proba2H = 1 - probaV; 
+	float proba2V = 1 - probaH;  
+	//printf("ProbaH %e \n", probaH);
+	//printf("Serie %d \n", serie[0]); 
+	//printf("Serie %d \n", serie[1]); 
+
+	fprintf(fp,"\\begin{table}\n ");
+    fprintf(fp,"\\begin{tabular}{"); 
+    for(i=0; i<=num_partidos;i++){
+        if(i==0){
+            fprintf(fp," c");
+        }else{
+            fprintf(fp," | c ");
+        }//end else
+    }//end for generador tabla
+    fprintf(fp,"}\n \\\\  ");  
+
+    for(i=0; i<=num_partidos;i++){
+        if(i==0){
+            fprintf(fp,"$%d$",i);
+        }else{
+            fprintf(fp," & $%d$  ",i);
+        }//end if
+    }//end for nombre de la matriz
+    fprintf(fp,"\\\\ \n \\hline \\hline \n ");
+
+	for(i = 0; i<= num_partidos; i++){ 
+		for(j = 0; j <= num_partidos; j++){
+			if(i == 0){ 
+				resultado[i][j] = 1; 
+				//printf("Los 1: %e \n", resultado[i][j]);
+			} 
+			else if(j == 0){
+				resultado[i][j] = 0; 
+				//printf("Los 0: %e \n", resultado[i][j]);
+			}
+		}
+	} 
+
+
+	for(i = 0; i<= num_partidos; i++){ 
+		for(j = 0; j <= num_partidos; j++){
+			if(i == 0){ 
+				resultado[i][j] = 1;
+			} 
+			else if(j == 0){
+				resultado[i][j] = 0;
+			}  
+
+			else{  
+				partido_actual = (num_partidos - j) + (num_partidos - i) + 1; 
+				//printf("Partido actual %d = \b", partido_actual);   
+				//printf(" (%d \b", num_partidos);
+				//printf("- %d) \b", j); 
+				//printf("+ (%d \b", num_partidos); 
+				//printf("- %d) \b", i);  
+				//printf("+ 1 \b");
+ 
+				for(k = 0; k < tamanio_serie; k++){ 
+					if(k == 0){
+						if(partido_actual <= serie[k]){  
+							usarproba1 = probaH; 
+							usarproba2 = proba2V;
+						}
+					}
+					else{ 
+						if(partido_actual <= serie[k] && partido_actual > serie[k-1] && k%2 == 0){
+							usarproba1 = probaH; 
+							usarproba2 = proba2V;
+						} 
+						else if(partido_actual <= serie[k] && partido_actual > serie[k-1]){ 
+							usarproba1 = probaV; 
+							usarproba2 = proba2H;
+						}
+					} 
+					
+				}
+
+				resultado[i][j] = resultado[i-1][j] * usarproba1 + resultado[i][j-1] * usarproba2;  
+				//printf("%4f | \b", resultado[i][j]); 
+				//printf(" | resultado %4f = \b", resultado[i][j]); 
+				//printf(" %.4f \b", resultado[i-1][j]);
+				//printf("* %.4f \b", usarproba1);
+				//printf("+ %.4f \b", resultado[i][j-1]); 
+				//printf(" * %4f \n", usarproba2);  
+
+			} 
+		} 
+		printf("\n"); 
+		//printf(" ------------------------------------------- \n"); 
+
+	} 
+
+
+	for(i = 0; i <= num_partidos; i++){
+		for(j = 0; j <= num_partidos; j++){ 
+			if(i==0 && j==0){ 
+				fprintf(fp, " ");
+			}
+			else if(j==0){
+            	fprintf(fp,"$%.4f$",resultado[i][j]);
+        	}else{
+            	fprintf(fp," & $%.4f$  ",resultado[i][j]);
+        	}//end if
+		} 
+		fprintf(fp," \\\\ \n "); 
+	} 
+
+	//fprintf(fp,"$%.4f$", resultado[num_partidos][num_partidos]);  
+	fprintf(fp,"\\end{tabular}\n ");
+    fprintf(fp,"\\end{table}\n ");
+    fprintf(fp,"\\end{frame} \n");  
+
+
     fprintf(fp,"\\end{document}");
     fclose(fp);
     system("pdflatex deportes.tex");
@@ -184,6 +325,7 @@ void main(){
 	int **resultado = (int **)calloc(num_partidos+1,sizeof(int *));
     for (i=0; i<num_partidos+1; i++)
          resultado[i] = (int *)calloc(num_partidos+1,sizeof(int));  
-	serie_deportiva(num_partidos, probaH, probaV, serie, resultado, tamanio_serie);
+	serie_deportiva(num_partidos, probaH, probaV, serie, resultado, tamanio_serie); 
+	deportesBeamer(num_partidos, probaH, probaV, serie, resultado, tamanio_serie);
 
 }
