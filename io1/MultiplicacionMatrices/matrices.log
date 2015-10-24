@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.17)  22 OCT 2015 22:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.17)  24 OCT 2015 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1598,10 +1598,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 81.
 (\end occurred when \ifx on line 31 was incomplete)
 (\end occurred when \unless\ifcsname on line 31 was incomplete) 
 Here is how much of TeX's memory you used:
- 16624 strings out of 493304
- 299787 string characters out of 6139870
+ 16626 strings out of 493304
+ 299803 string characters out of 6139870
  384881 words of memory out of 5000000
- 19659 multiletter control sequences out of 15000+600000
+ 19661 multiletter control sequences out of 15000+600000
  40015 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,14n,53p,421b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1613,7 +1613,7 @@ re/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/l
 msso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on matrices.pdf (6 pages, 126838 bytes).
+Output written on matrices.pdf (6 pages, 126998 bytes).
 PDF statistics:
  206 PDF objects out of 1000 (max. 8388607)
  182 compressed objects within 2 object streams
