@@ -24,7 +24,7 @@ void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
 	int **tablaM = (int **)calloc(nMatrices+2,sizeof(int *));
 	int a=0;
     for (a=0; a<nMatrices+2; a++){
-      tablaM[a] = (int *)calloc(2,sizeof(int));
+      tablaM[a] = (int *)calloc(nMatrices+2,sizeof(int));
     }
     int **tablaP = (int **)calloc(nMatrices+1,sizeof(int *));
      for (a=0; a<nMatrices; a++){
@@ -68,17 +68,34 @@ void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
 
     //Empiezo a llenar los valores de la tabla que dependen de 
     // los valores i=j o j=i+1
-
- 	int x=1;
- 	int y=1;
+    printf("entre a otros valores\n");
+ 	//int columnaGeneral=1;
+ 	int fila=1;
+ 	int columna=1;
  	//X funcionan como las filas
-    for (x=1; x<nMatrices+1; x++){
-    	for(y=1; y<nMatrices+1; y++){
-    		printf("[%d][%d] %d",x,y,tablaM[x][y]);
+ 	while(columna<nMatrices+1){
+ 		fila=1;
+    	while(fila<=nMatrices+1){
+    		if(fila<columna && columna!=fila && columna!=fila+1){
+    			printf("entre a i=%d j=%d\n",fila,columna );
+    			tablaM[fila][columna]=99;
+    		}else{
+    			printf("me salte la entrada [%d][%d]\n",fila,columna);
+    		}
+    		fila=fila+1;
+    	}
+    	columna=columna+1;
+    }//ennd for filas*/
+    printf("sali de otros valores\n");
+
+    for (i=1; i<nMatrices+1; i++){
+    	for(j=1; j<nMatrices+1; j++){
+    		printf("%d",tablaM[i][j]);
     		
     	}//end for columnas
-        printf("\n");
+      printf("\n");
     }//ennd for filas*/
+    
 	printf("Voy al beamer\n");
     //MatricesBeamer(nameMat,nMatrices,matrices,dimensiones,tablaM);
 }
