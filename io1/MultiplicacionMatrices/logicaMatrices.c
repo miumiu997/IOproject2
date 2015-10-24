@@ -15,8 +15,34 @@ int calcularEntradaD(int nMatrices,int* dimensiones,int fila,int k,int columna){
 
 }//end calcularDImensiones
 
-int calcularMinEntrada(){
-	
+int calcularMinEntrada(int** numeros,int* dimensiones,int fila, int k,int columna){
+	int valor=1;
+	int contValor=1;
+	int *valores = (int **)calloc(columna+2,sizeof(int *));
+	int i=k;
+	for(i=k;i<columna;i++){
+		printf("Para [%d][%d]= Valores [%d, %d]%d, %d [%d,%d]\n", k,columna,k,i,numeros[k][i],numeros[i+1][columna],i+1,columna );
+		valores[contValor]=numeros[k][i]+numeros[i+1][columna]+(dimensiones[k-1]*dimensiones[i]*dimensiones[columna]);
+		printf("EL primer valor es de %d\n",valores[contValor] );
+		contValor=contValor+1;
+	}
+
+	valor=minValor(valores,columna-1);
+	printf("El valor minimo es de %d\n",valor);
+	printf("El valor total es de %d se toman d_%d con %d, d_%d con %d,d_%d con %d\n",valor, fila,dimensiones[fila],k,dimensiones[k],columna,dimensiones[columna]);
+	return valor;
+}
+
+int minValor(int *numeros, int nNumeros){
+	int menor=0;
+	int i;
+	menor=numeros[1];
+	for(i=1;i<nNumeros;i++){
+		if(numeros[i]<menor){
+			menor=numeros[i];
+		}
+	}
+	return menor;
 }
 
 void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
@@ -30,8 +56,7 @@ void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
      for (a=0; a<nMatrices; a++){
       tablaP[a] = (int *)calloc(2,sizeof(int));
     }
-
-    printf("Antes de llenar la matriz\n");
+   
     int b=1;
     a=1;
     for (a=1; a<nMatrices+1; a++){
@@ -39,8 +64,7 @@ void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
       		tablaM[a][b] = 0;
       	}
     }
-    printf("llene la matriz\n");
-
+   
    int i=1;
     int j=1;
     int valor=0;
@@ -74,15 +98,16 @@ void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
  	int columna=1;
  	//X funcionan como las filas
  	while(columna<nMatrices+1){
- 		fila=1;
-    	while(fila<=nMatrices+1){
+ 		fila=nMatrices;
+    	while(0<fila){
     		if(fila<columna && columna!=fila && columna!=fila+1){
     			printf("entre a i=%d j=%d\n",fila,columna );
-    			tablaM[fila][columna]=99;
+    			tablaM[fila][columna]=calcularMinEntrada(tablaM,dimensiones,fila-1,fila,columna);
+
     		}else{
     			printf("me salte la entrada [%d][%d]\n",fila,columna);
     		}
-    		fila=fila+1;
+    		fila=fila-1;
     	}
     	columna=columna+1;
     }//ennd for filas*/
