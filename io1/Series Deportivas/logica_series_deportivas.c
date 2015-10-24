@@ -307,6 +307,14 @@ void deportesBeamer(int num_partidos, float probaH, float probaV, int** serie, f
     fprintf(fp,"\\end{frame} \n");  
 
 
+    fprintf(fp,"\\begin{frame}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\frametitle{RESULTADO FINAL}\n"); 
+    fprintf(fp,"La probabilidad de que el equipo A gane es de $%.4f$. \\\\", resultado[num_partidos][num_partidos]); 
+
+    fprintf(fp,"\\end{frame} \n"); 
+
+
     fprintf(fp,"\\end{document}");
     fclose(fp);
     system("pdflatex deportes.tex");

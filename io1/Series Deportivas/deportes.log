@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.17)  24 OCT 2015 13:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.17)  24 OCT 2015 13:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1556,6 +1556,8 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 
 ] [7
 
+] [8
+
 ]
 \tf@nav=\write6
 \openout6 = `deportes.nav'.
@@ -1566,18 +1568,18 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 \tf@snm=\write8
 \openout8 = `deportes.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 89.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 89.
 
 (./deportes.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 89.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 89.
 Package rerunfilecheck Info: File `deportes.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 89.
  )
 (\end occurred when \ifx on line 31 was incomplete)
 (\end occurred when \ifx on line 31 was incomplete)
@@ -1589,10 +1591,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
 (\end occurred when \ifx on line 31 was incomplete)
 (\end occurred when \unless\ifcsname on line 31 was incomplete) 
 Here is how much of TeX's memory you used:
- 16605 strings out of 493304
- 299312 string characters out of 6139870
+ 16609 strings out of 493304
+ 299345 string characters out of 6139870
  386841 words of memory out of 5000000
- 19640 multiletter control sequences out of 15000+600000
+ 19642 multiletter control sequences out of 15000+600000
  36886 words of font info for 42 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,14n,53p,421b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1602,10 +1604,10 @@ nc}</usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/t
 ype1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmsso10.pfb>
-Output written on deportes.pdf (7 pages, 99686 bytes).
+Output written on deportes.pdf (8 pages, 101053 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
- 15 named destinations out of 1000 (max. 500000)
+ 247 PDF objects out of 1000 (max. 8388607)
+ 223 compressed objects within 3 object streams
+ 17 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

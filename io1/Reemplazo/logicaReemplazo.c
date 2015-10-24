@@ -69,25 +69,61 @@ void equipmentBeamer(int* g,int** proximo,int plazo){
 
     fp = fopen("equipment.tex", "w");
 
-    fprintf(fp,"\\documentclass{beamer}\n");
+
+
+    fprintf(fp,"\\documentclass[10]{beamer} \n");
+    fprintf(fp,"\\usepackage[T1]{fontenc} \n");
+    fprintf(fp,"\\usepackage{lmodern}\n");
+    fprintf(fp,"\\usepackage[spanish]{babel}\n");
+    fprintf(fp,"\\usepackage{fancyhdr}\n");
+    fprintf(fp,"\\usepackage{xcolor}\n");
     fprintf(fp,"\\usepackage{color}\n");
+    fprintf(fp,"\\usepackage{dirtytalk}\n");
+
+    fprintf(fp,"\\definecolor{dgreen}{rgb}{0.,0.6,0.}\n");
+    fprintf(fp,"\\definecolor{WHITE}{RGB}{255,255,255}\n");
+    fprintf(fp,"\\definecolor{amarillo}{RGB}{255,255,0}\n");
+    fprintf(fp,"\\definecolor{gris}{RGB}{174,174,174}\n");
+    fprintf(fp,"\\definecolor{ROJO}{RGB}{237,28,36}\n");
+    fprintf(fp,"\\setbeamercolor{normal text}{bg=black!80}\n"); 
+    fprintf(fp,"\\setbeamercolor{frametitle}{fg=black,bg=amarillo!20}\n");
+    fprintf(fp,"\\setbeamercolor{subtitle}{fg=WHITE}\n");
+    fprintf(fp,"\\setbeamercolor{section in head/foot}{bg=amarillo}\n");
+    fprintf(fp,"\\setbeamercolor{author}{fg=WHITE}\n");
+    fprintf(fp,"\\setbeamercolor{date in head/foot}{fg=amarillo}\n");
+
+    fprintf(fp,"\\title{{\\color{WHITE} \\large \\textbf{INSTITUTO TECNOL\\'OGICO DE COSTA RICA}} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ESCUELA DE INGENIER\\'IA EN COMPUTACI'ON }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{INVESTIGACI\\'ON DE OPERACIONES  }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ALGORITMO PARA REEMPLAZO \\\\ DE EQUIPOS  }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{I SEMESTRE  }}\\\\ \\vspace{0.02cm}\n"); 
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{PROFESOR}} \\\\ \\vspace{0.02cm}\n"); 
+    fprintf(fp,"{\\color{WHITE} \\large DR. FRANCISCO J. TORRES ROJAS  } \\\\ \\vspace{0.02cm}\n"); 
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{GRUPO 40}} \\\\ \\vspace{0.01cm}\n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ESTUDIANTES} }} \n");  
+    fprintf(fp,"\\color{WHITE} \\author{KATHY ANDRE\\'INA BRENES GUERRERO. \\\\ ADRIAN CUBERO MORA. \\\\MIUYIN YONG WONG}\n");
+    fprintf(fp,"\\date{\\em \\color{WHITE} \\today}\n");
     fprintf(fp,"\\begin{document}\n");
-    fprintf(fp,"\\title{Reemplazo de Equipos}\n ");
-    fprintf(fp,"\\author{Kathy Brenes, Miuyin, Adrian Cubero}\n");
-    fprintf(fp,"\\date{\\today}\n ");
-    fprintf(fp,"\\frame{\\titlepage}\n ");
-     fprintf(fp,"\\begin{frame}\n");
-    fprintf(fp,"\\color{black}\n");
-    fprintf(fp,"\\frametitle{Funcionamiento}\n");
-    fprintf(fp,"El empleo del análisis de reemplazo de equipo nos muestra \n");
-    fprintf(fp,"\\\\una categoría de decisiones de inversión que implica \n"); 
+    fprintf(fp,"\\begin{frame}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\titlepage portada\n");
+    fprintf(fp,"\\end{frame} \n"); 
+
+
+    fprintf(fp,"\\begin{frame}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\frametitle{FUNCIONAMIENTO}\n");
+    fprintf(fp,"El empleo del an\\'alisis de reemplazo de equipo nos muestra \n");
+    fprintf(fp,"\\\\una categor\\'ia de decisiones de inversi\\'on que implica \n"); 
     fprintf(fp,"\\\\considerar el gasto necesario para reemplazar equipo \n");
-    fprintf(fp,"\\\\ desgastado u obsoleto por tecnología de punta que permita\n");
-    fprintf(fp,"\\\\ mejorar la eficiencia de la producción y elevar el índice de \n");
+    fprintf(fp,"\\\\ desgastado u obsoleto por tecnolog\\'ia de punta que permita\n");
+    fprintf(fp,"\\\\ mejorar la eficiencia de la producci\\'on y elevar el \\'indice de \n");
     fprintf(fp,"\\\\ productividad.\n");
-    fprintf(fp,"\\end{frame} \n");
+    fprintf(fp,"\\end{frame} \n"); 
+
     fprintf(fp,"\\frame{\\frametitle{Reemplazo de Equipos}\n ");
-    fprintf(fp,"\\begin{center}\n ");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\begin{center}\n "); 
     fprintf(fp,"\\begin{tabular}{|");
     for ( i = 0; i <= 3; ++i)
     {
@@ -102,8 +138,14 @@ void equipmentBeamer(int* g,int** proximo,int plazo){
     for (i = 0; i < plazo; ++i) {
         fprintf(fp,"%d&%d&",i,g[i]);
          j=0;
-        while (proximo[i][j] != 0){
-            fprintf(fp,"%d,",proximo[i][j]);
+        while (proximo[i][j] != 0){ 
+        	if(j == 0){ 
+        		fprintf(fp,"%d",proximo[i][j]);
+        	} 
+        	else{  
+        		fprintf(fp,", %d",proximo[i][j]);
+
+        	}
             j++;
         }
 
@@ -114,7 +156,8 @@ void equipmentBeamer(int* g,int** proximo,int plazo){
     fprintf(fp,"\\end{center}\n ");
     fprintf(fp,"}\n");
 
-    fprintf(fp,"\\frame{\\frametitle{Rutas Optimas}\n ");
+    fprintf(fp,"\\frame{\\frametitle{Rutas Optimas}\n "); 
+ 	fprintf(fp,"\\color{white}\n");
 
     int* resultado=(int*)calloc(plazo+1, sizeof(int));
 
@@ -130,7 +173,8 @@ void equipmentBeamer(int* g,int** proximo,int plazo){
 }
 
 int rutasAux(int anterior, int** array,int sub,int max,int*aux,FILE* fp){
-    int i=0;
+    int i=0; 
+    int k=0;
     while(array[sub][i] != 0){
         if (anterior > array[sub][i])
         {
@@ -143,8 +187,15 @@ int rutasAux(int anterior, int** array,int sub,int max,int*aux,FILE* fp){
             for (j = 0; j < max; ++j)
             {
                 if (aux[j] != 0)
-                {
-                    fprintf(fp,"%d-",aux[j]);
+                { 
+                	if(k == 0){ 
+                		fprintf(fp," %d ",aux[j]); 
+                	} 
+                	else{  
+                		fprintf(fp,"-%d ",aux[j]); 
+
+                	}
+                    k = k+1; 
                 }
             }
             fprintf(fp,"\\newline");

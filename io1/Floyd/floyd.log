@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.5)  11 SEP 2015 09:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.17)  24 OCT 2015 13:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **floyd.tex
 (./floyd.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texmf/tex/latex/beamer/base/beamer.cls
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasercs.sty
 Package: beamerbasercs 2012/11/13 (rcs-revision cb16a617839f)
@@ -857,12 +857,12 @@ Missing character: There is no ¡ in font cmss10!
  [2
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 26.
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 26.
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -872,21 +872,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [5
 
+] [6
+
 ]
-Overfull \vbox (243.3271pt too high) detected at line 120
- []
-
-[6
-
-] [7
+[7
 
 ] [8
-
-] [9
-
-] [10
-
-] [11
 
 ]
 \tf@nav=\write6
@@ -898,11 +889,11 @@ Overfull \vbox (243.3271pt too high) detected at line 120
 \tf@snm=\write8
 \openout8 = `floyd.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 176.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 176.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 66.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
  (./floyd.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 176.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 176.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 66.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 66.
 Package rerunfilecheck Info: File `floyd.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -910,22 +901,28 @@ Package rerunfilecheck Info: File `floyd.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 176.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 66.
  ) 
 Here is how much of TeX's memory you used:
- 15462 strings out of 495028
- 285007 string characters out of 6181498
- 361568 words of memory out of 5000000
- 18289 multiletter control sequences out of 15000+600000
+ 15458 strings out of 493304
+ 284971 string characters out of 6139870
+ 362854 words of memory out of 5000000
+ 18538 multiletter control sequences out of 15000+600000
  10258 words of font info for 38 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 957 hyphenation exceptions out of 8191
  49i,14n,53p,412b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
-Output written on floyd.pdf (11 pages, 42253 bytes).
+pdfTeX warning (dest): name{Navigation9} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation11} has been referenced but does not exis
+t, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
+Output written on floyd.pdf (8 pages, 35020 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
- 23 named destinations out of 1000 (max. 500000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
+ 19 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
