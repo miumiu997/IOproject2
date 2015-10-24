@@ -138,7 +138,8 @@ void floydK (int **routes, int order, int**p,FILE* fp){
                 }
             }
         }
-        fprintf(fp,"\\frame{\\frametitle{D%d}\n ",k+1);
+        fprintf(fp,"\\frame{\\frametitle{D%d}\n ",k+1); 
+        fprintf(fp,"\\color{white}\n");
         fprintf(fp,"\\begin{center}\n ");
         fprintf(fp,"\\begin{tabular}{|");
         for ( i = 0; i < order; ++i)
@@ -214,24 +215,57 @@ void floydBeamer(int**zero, int**d,int**p,int order){
 
     fp = fopen("floyd.tex", "w");
 
-    fprintf(fp,"\\documentclass{beamer}\n");
+    fprintf(fp,"\\documentclass[10]{beamer} \n");
+    fprintf(fp,"\\usepackage[T1]{fontenc} \n");
+    fprintf(fp,"\\usepackage{lmodern}\n");
+    fprintf(fp,"\\usepackage[spanish]{babel}\n");
+    fprintf(fp,"\\usepackage{fancyhdr}\n");
+    fprintf(fp,"\\usepackage{xcolor}\n");
     fprintf(fp,"\\usepackage{color}\n");
+    fprintf(fp,"\\usepackage{dirtytalk}\n");
+
+    fprintf(fp,"\\definecolor{dgreen}{rgb}{0.,0.6,0.}\n");
+    fprintf(fp,"\\definecolor{WHITE}{RGB}{255,255,255}\n");
+    fprintf(fp,"\\definecolor{amarillo}{RGB}{255,255,0}\n");
+    fprintf(fp,"\\definecolor{gris}{RGB}{174,174,174}\n");
+    fprintf(fp,"\\definecolor{ROJO}{RGB}{237,28,36}\n");
+    fprintf(fp,"\\setbeamercolor{normal text}{bg=black!80}\n"); 
+    fprintf(fp,"\\setbeamercolor{frametitle}{fg=black,bg=amarillo!20}\n");
+    fprintf(fp,"\\setbeamercolor{subtitle}{fg=WHITE}\n");
+    fprintf(fp,"\\setbeamercolor{section in head/foot}{bg=amarillo}\n");
+    fprintf(fp,"\\setbeamercolor{author}{fg=WHITE}\n");
+    fprintf(fp,"\\setbeamercolor{date in head/foot}{fg=amarillo}\n");
+
+    fprintf(fp,"\\title{{\\color{WHITE} \\large \\textbf{INSTITUTO TECNOL\\'OGICO DE COSTA RICA}} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ESCUELA DE INGENIER\\'IA EN COMPUTACI'ON }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{INVESTIGACI\\'ON DE OPERACIONES  }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ALGORITMO DE FLOYD }} \\\\ \\vspace{0.02cm} \n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{I SEMESTRE  }}\\\\ \\vspace{0.02cm}\n"); 
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{PROFESOR}} \\\\ \\vspace{0.02cm}\n"); 
+    fprintf(fp,"{\\color{WHITE} \\large DR. FRANCISCO J. TORRES ROJAS  } \\\\ \\vspace{0.02cm}\n"); 
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{GRUPO 40}} \\\\ \\vspace{0.01cm}\n");
+    fprintf(fp,"{\\color{WHITE} \\large \\textbf{ESTUDIANTES} }} \n");  
+    fprintf(fp,"\\color{WHITE} \\author{KATHY ANDRE\\'INA BRENES GUERRERO. \\\\ ADRIAN CUBERO MORA. \\\\MIUYIN YONG WONG}\n");
+    fprintf(fp,"\\date{\\em \\color{WHITE} \\today}\n");
     fprintf(fp,"\\begin{document}\n");
-    fprintf(fp,"\\title{Algoritmo Floyd}\n ");
-    fprintf(fp,"\\author{Kathy Brenes, Miuyin, Adrian Cubero}\n");
-    fprintf(fp,"\\date{\\today}\n ");
-    fprintf(fp,"\\frame{\\titlepage}\n ");
+    fprintf(fp,"\\begin{frame}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\titlepage portada\n");
+    fprintf(fp,"\\end{frame} \n"); 
+
 
     fprintf(fp,"\\begin{frame}\n");
-    fprintf(fp,"\\color{black}\n");
-    fprintf(fp,"\\frametitle{ALGORITMO DE LAS RUTAS M\\'AS CORTAS}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\frametitle{ALGORITMO DE RUTAS M\\'AS CORTAS'}\n");
     fprintf(fp,"El algoritmo de Floyd-Warshall, descrito en 1959 por Bernard Roy.\n");
-    fprintf(fp,"\\\\Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos ponderados.\n"); 
-    fprintf(fp,"\\\\El algoritmo encuentra el camino entre todos los pares de vértices en una única ejecución.\n");
-    fprintf(fp,"\\\\ El algoritmo de Floyd-Warshall es un ejemplo de programación dinámica.\n");
+    fprintf(fp,"\\\\Es un algoritmo de an\\'alisis sobre grafos para encontrar el camino m\\'inimo en grafos dirigidos ponderados.\n"); 
+    fprintf(fp,"\\\\El algoritmo encuentra el camino entre todos los pares de v\\'ertices en una \\'unica ejecuci\\'on.\n");
+    fprintf(fp,"\\\\ El algoritmo de Floyd-Warshall es un ejemplo de programaci\\'on din\\'amica.\n");
     fprintf(fp,"\\end{frame} \n");
 
-    fprintf(fp,"\\frame{\\frametitle{D0}\n ");
+
+    fprintf(fp,"\\frame{\\frametitle{D0}\n "); 
+    fprintf(fp,"\\color{white}\n");
     fprintf(fp,"\\begin{center}\n ");
     fprintf(fp,"\\begin{tabular}{|");
     for ( i = 0; i < order; ++i)
@@ -257,7 +291,8 @@ void floydBeamer(int**zero, int**d,int**p,int order){
     fprintf(fp,"\\end{tabular}\n");
     fprintf(fp,"\\end{center}\n ");
     fprintf(fp,"}\n");
-    fprintf(fp,"\\frame{\\frametitle{DN}\n ");
+    fprintf(fp,"\\frame{\\frametitle{DN}\n "); 
+    fprintf(fp,"\\color{white}\n");
     fprintf(fp,"\\begin{center}\n ");
     fprintf(fp,"\\begin{tabular}{|");
     for ( i = 0; i < order; ++i)
@@ -284,6 +319,7 @@ void floydBeamer(int**zero, int**d,int**p,int order){
     fprintf(fp,"\\end{center}\n ");
     fprintf(fp,"}\n");
     fprintf(fp,"\\frame{\\frametitle{P}\n ");
+    fprintf(fp,"\\color{white}\n");
     fprintf(fp,"\\begin{center}\n ");
     fprintf(fp,"\\begin{tabular}{|");
     for ( i = 0; i < order; ++i)
@@ -310,7 +346,8 @@ void floydBeamer(int**zero, int**d,int**p,int order){
     fprintf(fp,"\\end{center}\n ");
     fprintf(fp,"}\n");
 
-    fprintf(fp,"\\frame{\\frametitle{rutas}\n ");
+    fprintf(fp,"\\frame{\\frametitle{rutas}\n "); 
+    fprintf(fp,"\\color{white}\n");
 
     for (i = 0; i < order; ++i)
     {
