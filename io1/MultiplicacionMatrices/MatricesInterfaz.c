@@ -26,47 +26,41 @@ void generate_Mats(GtkWidget *widget, gpointer user_data)
 
     gint dimens = gtk_spin_button_get_value_as_int (spinMatrices);
     nMatrices=dimens;
-
     strcpy(nameMat,gtk_entry_get_text(GTK_ENTRY(txtMatrices)));
     printf("nMatrices= %d\n nombreMatriz %s \n",nMatrices,nameMat );
-    /*GtkWidget *table;
+
+    GtkWidget *table;
     GtkWidget *execute;
+
     
     table = gtk_grid_new();
-    dimensiones= calloc(tamanio,sizeof(GtkWidget));
+    dimensiones= calloc(nMatrices,sizeof(GtkWidget));
     int i;
-    for(i=0; i<tamanio;i++)
-        distancias[i]=calloc(tamanio,sizeof(GtkWidget));
-    gtk_container_add (GTK_CONTAINER (container2), table);
+    for(i=0; i<nMatrices;i++)
+        dimensiones[i]=calloc(3,sizeof(GtkWidget));
+    gtk_container_add (GTK_CONTAINER (SRWindwMatrices), table);
     int x;
     int y;
-    for(x=0;x<tamanio+1;x++){
-       for(y=0; y<tamanio+1;y++){
+    for(x=0;x<nMatrices+1;x++){
+       for(y=0; y<2;y++){
             GtkWidget *label;
             printf("x= %d y y=%d\n",x,y );
             if(x==0 && y==0){
-                label=gtk_label_new ("Nodos");
+                label=gtk_label_new ("dimensiones");
                 gtk_grid_attach (GTK_GRID (table), label, x, y, 1, 1);
             }else{
                 if(x==0){
-                    label=gtk_label_new(gtk_entry_get_text (nombres[y-1]));
+                    label=gtk_label_new(gtk_entry_get_text (txtMatrices));
                     gtk_grid_attach (GTK_GRID (table), label, x, y, 1, 1);                   
                 }else if(y==0){
-                    label=gtk_label_new(gtk_entry_get_text (nombres[x-1]));
-                    gtk_grid_attach (GTK_GRID (table), label, x, y, 1, 1);                   
-                }else if(x==y){
-                    label=gtk_label_new("0");
-                    gtk_grid_attach (GTK_GRID (table), label, x, y, 1, 1);
-                    GtkWidget *entry;
-                    entry = gtk_entry_new ();
-                    gtk_entry_set_text (GTK_ENTRY (entry), "0");
-                    distancias[x-1][y-1]= entry;
-                    printf("Almacenando en x= %d y y=%d\n",x-1,y-1 );
+                    label=gtk_label_new(gtk_entry_get_text (txtMatrices));
+                    gtk_grid_attach (GTK_GRID (table), label, x, y, 1, 1);                  
+                
                 }else{
                     GtkWidget *entry;
                     entry = gtk_entry_new ();
                     gtk_grid_attach (GTK_GRID (table), entry, x, y, 1, 1);
-                    distancias[x-1][y-1]= entry;
+                    dimensiones[x-1][y-1]= entry;
                     printf("Almacenando en x= %d y y=%d\n",x-1,y-1 );
 
                 }            
@@ -74,14 +68,12 @@ void generate_Mats(GtkWidget *widget, gpointer user_data)
             }//fin if
         }// end primer for
     }//end for
-     createFloyd = gtk_button_new_with_label("Ejecutar algoritmo Floyd");
-    g_signal_connect (createFloyd, "clicked", G_CALLBACK (ejecutarFloyd), NULL);
-    gtk_grid_attach (GTK_GRID (table), createFloyd, 1, tamanio+2, 1, 1);
+    execute = gtk_button_new_with_label("Ejecutar algoritmo");
+    //g_signal_connect (createFloyd, "clicked", G_CALLBACK (ejecutarFloyd), NULL);
+    gtk_grid_attach (GTK_GRID (table), execute, 1, nMatrices+2, 1, 1);
 
-    addNode = gtk_button_new_with_label("+");
-    g_signal_connect (addNode, "clicked", G_CALLBACK (ejecutarFloyd), NULL);
-    gtk_grid_attach (GTK_GRID (table), addNode, 2, tamanio+2, 1, 1);
-    gtk_widget_show_all (window);*/
+    
+    gtk_widget_show_all (window);
 }
 
 int main(int argc, char *argv[])
