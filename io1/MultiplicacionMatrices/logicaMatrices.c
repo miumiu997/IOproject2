@@ -291,9 +291,9 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
     
     for(i=0; i<nMatrices;i++){
         if(i==0){
-            fprintf(fp,"$%c_%d$",nameMat,i+1);
+            fprintf(fp,"$%s_%d$",nameMat,i+1);
         }else{
-            fprintf(fp," & $%c_%d$  ",nameMat,i+1);
+            fprintf(fp," & $%s_%d$  ",nameMat,i+1);
         }//end if
     }//end for nombre de la matriz
     fprintf(fp,"\\\\ \n \\hline \\hline \n ");
@@ -457,15 +457,15 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
 
 }
 
-void main(){
+/*void main(){
 
     //Variables
     int nMatrices;
     int i; 
-    char* c;
+    char c[50];
     printf("\n Nombre de las matrices\n");
-    scanf("%c",&c);
-    printf("NOmbres de la matriz %c\n",c );
+    scanf("%s",&c);
+    printf("NOmbres de la matriz %s\n",c );
     printf("\n nMatrices\n");
     scanf("%d",&nMatrices);
     printf("Matrices: %d\n",nMatrices );  
@@ -483,4 +483,4 @@ void main(){
     
     llenarDimensiones(c,nMatrices,matrices);
 	
-}
+}*/
