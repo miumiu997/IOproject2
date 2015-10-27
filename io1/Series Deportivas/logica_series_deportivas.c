@@ -321,6 +321,7 @@ void deportesBeamer(int num_partidos, float probaH, float probaV, int** serie, f
     system("evince --presentation deportes.pdf ");
 }
 
+/*
 void main(){   
 	int i;
 	int num_partidos = 4;  
@@ -336,4 +337,4 @@ void main(){
 	serie_deportiva(num_partidos, probaH, probaV, serie, resultado, tamanio_serie); 
 	deportesBeamer(num_partidos, probaH, probaV, serie, resultado, tamanio_serie);
 
-}
+}*/  

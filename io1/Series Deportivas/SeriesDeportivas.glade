@@ -23,6 +23,16 @@
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
   </object>
+  <object class="GtkAdjustment" id="adjustment3">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment4">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -39,7 +49,7 @@
     <property name="can_focus">False</property>
     <property name="stock">gtk-missing-image</property>
   </object>
-  <object class="GtkWindow" id="windowFloyd">
+  <object class="GtkWindow" id="windowDeportes">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Problema rutas mas cortas</property>
     <property name="resizable">False</property>
@@ -338,6 +348,11 @@
               <object class="GtkSpinButton" id="spinPartidos">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="progress_pulse_step">1</property>
+                <property name="adjustment">adjustment1</property>
+                <property name="climb_rate">1</property>
+                <property name="digits">1</property>
+                <property name="numeric">True</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -391,6 +406,9 @@
               <object class="GtkSpinButton" id="spinProbaH">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="adjustment">adjustment2</property>
+                <property name="climb_rate">0.01</property>
+                <property name="digits">2</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -444,6 +462,9 @@
               <object class="GtkSpinButton" id="spinProbaR">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="adjustment">adjustment3</property>
+                <property name="climb_rate">0.01</property>
+                <property name="digits">2</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -497,6 +518,9 @@
               <object class="GtkSpinButton" id="spinSerie">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="adjustment">adjustment4</property>
+                <property name="climb_rate">1</property>
+                <property name="digits">2</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -506,7 +530,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="buttonSerie">
+              <object class="GtkButton" id="buttonSerieTable">
                 <property name="label" translatable="yes">Crear tabla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -545,7 +569,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkScrolledWindow" id="scrollDistancias">
+          <object class="GtkScrolledWindow" id="SRWindwSerie">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="shadow_type">in</property>
@@ -557,10 +581,13 @@
           </packing>
         </child>
         <child>
-          <object class="GtkScrolledWindow" id="SRWindw">
+          <object class="GtkButton" id="buttonIngresarDatos">
+            <property name="label" translatable="yes">Ingresar Datos</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="shadow_type">in</property>
+            <property name="receives_default">True</property>
+            <property name="relief">none</property>
+            <property name="yalign">1</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -569,15 +596,12 @@
           </packing>
         </child>
         <child>
-          <object class="GtkStatusbar" id="statusbar6">
+          <object class="GtkButton" id="btnSave">
+            <property name="label" translatable="yes">Guardar</property>
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
-            <property name="margin_top">6</property>
-            <property name="margin_bottom">6</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="relief">none</property>
           </object>
           <packing>
             <property name="expand">False</property>
