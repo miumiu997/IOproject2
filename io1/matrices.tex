@@ -1,0 +1,109 @@
+\documentclass[10]{beamer} 
+\usepackage[T1]{fontenc} 
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{dirtytalk}
+\definecolor{dgreen}{rgb}{0.,0.6,0.}
+\definecolor{WHITE}{RGB}{255,255,255}
+\definecolor{amarillo}{RGB}{255,255,0}
+\definecolor{gris}{RGB}{174,174,174}
+\definecolor{ROJO}{RGB}{237,28,36}
+\setbeamercolor{normal text}{bg=black!80}
+\setbeamercolor{frametitle}{fg=black,bg=amarillo!20}
+\setbeamercolor{subtitle}{fg=WHITE}
+\setbeamercolor{section in head/foot}{bg=amarillo}
+\setbeamercolor{author}{fg=WHITE}
+\setbeamercolor{date in head/foot}{fg=amarillo}
+\title{{\color{WHITE} \large \textbf{INSTITUTO TECNOL\'OGICO DE COSTA RICA}} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{ESCUELA DE INGENIER\'IA EN COMPUTACI'ON }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{INVESTIGACI\'ON DE OPERACIONES  }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{ALGORITMO PARA LA \\ MULTIPLICACI\'ON DE MATRICES  }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{I SEMESTRE  }}\\ \vspace{0.02cm}
+{\color{WHITE} \large \textbf{PROFESOR}} \\ \vspace{0.02cm}
+{\color{WHITE} \large DR. FRANCISCO J. TORRES ROJAS  } \\ \vspace{0.02cm}
+{\color{WHITE} \large \textbf{GRUPO 40}} \\ \vspace{0.01cm}
+{\color{WHITE} \large \textbf{ESTUDIANTES} }} 
+\color{WHITE} \author{KATHY ANDRE\'INA BRENES GUERRERO. \\ ADRIAN CUBERO MORA. \\MIUYIN YONG WONG}
+\date{\em \color{WHITE} \today}
+\begin{document}
+\begin{frame}
+\color{white}
+\titlepage portada
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{ALGORITMO PARA LA MULTIPLICACI\'ON DE DOS MATRICES}
+El n\'umero de columnas de la primera deben ser iguales al n\'umero de filas de la segunda.
+\\ Si las dimensiones de la primera son n * k la segunda debe ser k * m.
+\\ La matriz resultante es n * m.
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{PROPIEDADES DE LA MULTIPLICACI\'ON DE MATRICES}
+Se realizan productos puntos entre vectores fila y vectores columna para encontrar cada entrada de la matriz resultante.
+\\ No es conmutativa.
+\\Un \'arbol binario no vac\'io, de ra\'iz R.
+\\ Total de multiplicaciones requeridas? \\ n*k*m  \\ \t con $M_1:n*k; M_2: k*m$.
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{MULTIPLICACI\'ON EN CADENA}
+Se pueden multiplicar varias matrices en sucesi\'on.
+\\ No es conmutativa, pero si asociativa, es decir, se puede hacer las multiplicaciones en diversos \'ordenes.
+\\ Distinto orden implica distinto costo.
+\end{frame} 
+\begin{frame}\frametitle{VALORES INICIALES}
+ \color{white}
+\begin{table}
+ \begin{tabular}{ c | c  | c  | c  | c  | c }
+ \\  $Matriz _1$ & $Matriz _2$   & $Matriz _3$   & $Matriz _4$   & $Matriz _5$   & $Matriz _6$  \\ 
+ \hline \hline 
+ $5x2$& $2x3$& $3x4$& $4x6$& $6x7$& $7x8$ \\ 
+  $d_0xd_1$& $d_1xd_2$& $d_2xd_3$& $d_3xd_4$& $d_4xd_5$& $d_5xd_6$ 
+ \end{tabular}
+ \color{white}
+\caption{Valores iniciales}
+ \end{table}
+ \end{frame} 
+\begin{frame}\frametitle{TABLA M}
+ \color{white}
+\begin{table}
+ \begin{tabular}{ c | c  | c  | c  | c  | c  | c }
+ \\    & 1   & 2   & 3   & 4   & 5   & 6  \\ 
+ \hline \hline 
+  1 & 0& 30& 64& 132& 226& 348 \\ 
+  2  & & 0& 24& 72& 156& 268 \\ 
+  3  &  & & 0& 72& 198& 366 \\ 
+  4  &  &  & & 0& 168& 392 \\ 
+  5  &  &  &  & & 0& 336 \\ 
+  6  &  &  &  &  & & 0 \\ 
+  7  &  &  &  &  &  &  \\ 
+  
+ \end{tabular}
+ \color{white}
+\caption{Tabla M}
+ \end{table}
+ \end{frame} 
+\begin{frame}\frametitle{TABLA P}
+ \color{white}
+\begin{table}
+ \begin{tabular}{ c | c  | c  | c  | c  | c  | c }
+ \\    & 1   & 2   & 3   & 4   & 5   & 6  \\ 
+ \hline \hline 
+  1  & & 1& 1& 1& 1& 1 \\ 
+  2  &  & & 2& 3& 4& 5 \\ 
+  3  &  &  & & 3& 4& 5 \\ 
+  4  &  &  &  & & 4& 5 \\ 
+  5  &  &  &  &  & & 5 \\ 
+  6  &  &  &  &  &  &  \\ 
+  7  &  &  &  &  &  &  \\ 
+  
+ \end{tabular}
+ \color{white}
+\caption{Tabla P}
+ \end{table}
+ \end{frame} 
+\end{document}
