@@ -235,7 +235,7 @@
               <object class="GtkLabel" id="lblSave">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Guardar los datos ingresados en unarchivo:</property>
+                <property name="label" translatable="yes">Guardar los datos ingresados en un archivo:</property>
                 <property name="wrap">True</property>
               </object>
               <packing>
@@ -245,11 +245,9 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btnGuardar">
-                <property name="label" translatable="yes">Guardar</property>
+              <object class="GtkEntry" id="txtfileCreate">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -267,6 +265,19 @@
                 <property name="margin_bottom">6</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">2</property>
+                <child>
+                  <object class="GtkButton" id="btnGuardar">
+                    <property name="label" translatable="yes">Guardar</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>

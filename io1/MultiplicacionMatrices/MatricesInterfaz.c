@@ -11,6 +11,8 @@ GtkWidget *window;
 GtkWidget *SRWindwMatrices; // division en la que se van actualizar las dimensiones de las matrices
 GtkWidget *spinMatrices;
 GtkWidget *txtMatrices;
+GtkWidget *txtfileCreate;
+char nombreArchivo[50];
 GtkWidget ***dimensiones;
 GtkWidget *fileChooser;
 int nMatrices;
@@ -18,6 +20,25 @@ GtkWidget ***Matrices; // capacidades son dimensiones
 char nameMat[50]; //0 si es bounded y 1 si es unbounded
 
 
+
+
+/*GUardar lo de la interfaz*/
+void save(GtkWidget *widget, gpointer user_data){ 
+   strcpy(nombreArchivo,gtk_entry_get_text(GTK_ENTRY(txtfileCreate)));
+   FILE *fp;
+
+   fp = fopen(nombreArchivo, "w"); 
+
+    fprintf(fp, "%s ; \n", nameMat);  
+    fprintf(fp, "%d \n",nMatrices);
+    int a=0;
+    for (a = 0; a < nMatrices; a++){
+        fprintf(fp, "%s-%s\n", gtk_entry_get_text (dimensiones[a][0]), gtk_entry_get_text (dimensiones[a][1]));
+        
+    }
+    fprintf(fp, "#");
+   fclose(fp);
+} //end save
 
 /*Cargar desde un archivo*/
 void cargarFile(GtkWidget *widget, gpointer user_data){ 
@@ -68,6 +89,7 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
     }   
     largo = 0;
     numero = atoi(palabra);
+    //palabra = (char*) realloc(palabra,0);
     printf("tamanio %d\n",numero);
     int cuantas=0;
 
@@ -80,11 +102,11 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
         ch = fgetc(fp);
         if(ch == '\n' ){
 
-            printf("%d",atoi(palabra));
+            printf("Esto es lo que tiene palabra /n %d",atoi(palabra));
 
             printf("\n");
            // matriz[nodo1-1][nodo2-1] =atoi(palabra);
-            gtk_entry_set_text(dimensiones[fila][columna],g_strdup_printf("%d",atoi(palabra)));
+            //gtk_entry_set_text(dimensiones[fila][columna],g_strdup_printf("%d",atoi(palabra)));
 
             largo=0;
             palabra = (char*) realloc(palabra,1);
@@ -93,8 +115,11 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
         else if (ch == '-'){
             fseek( fp, ftell(fp)-2, SEEK_SET );
             columna = 1;
-            printf("columna:%d - ",columna);
+            //printf("columna:%d - ",columna);
             fgetc(fp);
+
+            printf("Esto es lo que tiene palabra en - %d",atoi(palabra));
+
             largo=0;
             palabra = (char*) realloc(palabra,0);
         }       
@@ -105,9 +130,9 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
             columna=0;
 
         }
-    }*/
+    }
 
-
+    */
     fclose(fp);
     printf("\n");
 
@@ -160,7 +185,7 @@ void generate_Mats(GtkWidget *widget, gpointer user_data)
     printf("nMatrices= %d\n nombreMatriz %s \n",nMatrices,nameMat );
     GtkWidget *table;
     GtkWidget *execute;
-
+    char numMat[50];
     
     table = gtk_grid_new();
     dimensiones= calloc(nMatrices,sizeof(GtkWidget));
@@ -171,12 +196,23 @@ void generate_Mats(GtkWidget *widget, gpointer user_data)
     int fila;
     int columna;
     for(fila=0;fila<nMatrices;fila++){
-       for(columna=0; columna<2;columna++){
-            GtkWidget *entry;
-            entry = gtk_entry_new ();
-            gtk_grid_attach (GTK_GRID (table), entry, columna,fila, 1, 1);
-            dimensiones[fila][columna]= entry;
-            printf("Almacenando en x= %d y y=%d\n", fila,columna);
+       for(columna=0; columna<3;columna++){
+            if(columna==0){
+                //Construccion de los nombres de las matrices
+                GtkWidget *label;
+                strcpy(label2,nameMat);
+                sprintf(numMat, "%d", fila+1);
+                strcat(label2, numMat);
+                label=gtk_label_new (label2);
+                gtk_grid_attach (GTK_GRID (table), label, columna, fila, 1, 1);
+            }else{
+                GtkWidget *entry;
+                entry = gtk_entry_new ();
+                gtk_grid_attach (GTK_GRID (table), entry, columna,fila, 1, 1);
+                dimensiones[fila][columna-1]= entry;
+                printf("Almacenando en x= %d y y=%d\n", fila,columna-1);
+            }
+            printf("fila %d columna %d\n",fila,columna );
        }// end primer for
         //fila=fila+1;
     }//end for
@@ -207,12 +243,14 @@ int main(int argc, char *argv[])
     gtk_widget_set_size_request(GTK_WINDOW(SRWindwMatrices),200,200);
     spinMatrices= GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "spinMats"));
     txtMatrices= GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "txtNameMat"));
+    txtfileCreate=GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "txtfileCreate"));
     fileChooser= GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "btnChooseFile"));
     g_signal_connect (window, "destroy", G_CALLBACK (on_window_destroy), NULL);
     gtk_widget_set_tooltip_text (btnCargar, "Incorpora la informacion de un archivo. "); 
     gtk_widget_set_tooltip_text (btnSave, "Guarda el estado actual de los datos ingresados. "); 
     g_signal_connect (btnInMat, "clicked",G_CALLBACK (generate_Mats),NULL);
     g_signal_connect (btnCargar, "clicked",G_CALLBACK (cargarFile),NULL);
+    g_signal_connect (btnSave, "clicked",G_CALLBACK (save),NULL);
     g_object_unref(G_OBJECT(gtkBuilder));
     gtk_widget_show(window);
     gtk_main();
