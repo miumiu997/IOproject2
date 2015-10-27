@@ -75,7 +75,7 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
 
     generate_Mats();
 
-    while(!feof(fp))
+    /*while(fgetc(fp)!='#')
     {
         ch = fgetc(fp);
         if(ch == '\n' ){
@@ -105,7 +105,7 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
             columna=0;
 
         }
-    }
+    }*/
 
 
     fclose(fp);
