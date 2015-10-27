@@ -66,7 +66,7 @@ int minValor(int **numeros, int nNumeros,int fila,int columna){
 }
 
 void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
-	
+	printf("Entre a crear tabla M\n");
 	int **tablaM = (int **)calloc(nMatrices+2,sizeof(int *));
 	int a=0;
     for (a=0; a<nMatrices+2; a++){
@@ -80,24 +80,40 @@ void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
       		tablaM[a][b] = 0;
       	}
     }
-   
+
+
+    printf("Imprimir tabla M\n");
+     b=1;
+    a=1;
+    for (a=1; a<nMatrices+1; a++){
+    	for(b=1; b<nMatrices+1; b++){
+      		printf("%d",tablaM[a][b]);
+      	}
+    }
+   printf("Voy a empezar a generar la tabla\n");
    int i=1;
     int j=1;
     int valor=0;
     for (i=1; i<nMatrices+1; i++){
+    	printf("i va por %d\n",i );
     	for(j=1; j<nMatrices+1; j++){
+    		printf("j va por %d\n",j );
     		if(i==j){
+    			printf("entre a i==j\n");
     			tablaM[i][j]=0;
+    			printf("pase asignacion\n");
     			//tablaP[i][j]=0;
     			printf("TablaM[%d][%d]: %d TablaP[%d][%d]:%d",i,j,tablaM[i][j],i,j,tablaP[i][j]);
     			//printf("llene las diagonales hasta i=%d y j=%d\n",i,j );
     		}else if(j==i+1){
+    			printf("entre a j=i+1\n");
     			valor=calcularEntradaD(nMatrices,dimensiones,i-1,i,j);
     			//printf("entre a calcularEntradaD valor es %d en i=%d y j=%d \n",valor,i,j);
     			tablaM[i][j]=valor;
     			printf("%d",tablaM[i][j]);
     			//printf("TablaM[i][j] tiene %d\n", tablaM[i][j] );
     		}else if(j!=i+1){
+    			printf("j!=i+1\n");
     			//printf("estoy entrando al uno con i=%d y j=%d\n",i,j);
     			tablaM[i][j]=1;
     			printf("%d",tablaM[i][j]);
@@ -175,14 +191,19 @@ void llenarDimensiones(char* nameMat,int nMatrices ,int** matrices){
     Matrices contiene las dimensiones de cada matriz.
     **/
     int i;
-    int j;
     int *dimensiones = (int **)calloc(nMatrices+2,sizeof(int *));
     //matrices[6][2] = {{5,2},{2,3},{3,4},{4,6},{6,7},{7,8}};
-    for(i=0; i<nMatrices;i++){
+   /*for(i=0; i<nMatrices;i++){
         printf("Filas de M[%d]\n",i );
         scanf("%d",&matrices[i][0]);
         printf("Columnas de M[%d]\n",i );
         scanf("%d",&matrices[i][1]);
+    }*/
+
+    printf("matrices\n");
+    for(i=0; i<nMatrices;i++){
+        printf("Filas de %d,0 es = %d\n",i,matrices[i][0] );
+        printf("Filas de %d,1 es = %d\n",i,matrices[i][1] );
     }
     dimensiones= crearVDimensiones(dimensiones,nMatrices,matrices);
 
@@ -190,7 +211,11 @@ void llenarDimensiones(char* nameMat,int nMatrices ,int** matrices){
     for(i=0; i<nMatrices+1;i++){
         printf("d_%d: %d\n",i, dimensiones[i]);
     }
-
+    printf("NameMat %s\n",nameMat );
+    tablaP=(int **)calloc(nMatrices+1,sizeof(int *));
+     for (i=0; i<nMatrices+1; i++){      
+      tablaP[i]= (int *)calloc(3,sizeof(int));
+    }
     crearTablaM(nameMat,nMatrices,matrices ,dimensiones);
     
     
@@ -474,10 +499,7 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
       matrices[i] = (int *)calloc(3,sizeof(int));     
     }
 
-    tablaP=(int **)calloc(nMatrices+1,sizeof(int *));
-     for (i=0; i<nMatrices+1; i++){      
-      tablaP[i]= (int *)calloc(3,sizeof(int));
-    }
+    
     //matrices[6][2] = {{5,2},{2,3},{3,4},{4,6},{6,7},{7,8}};
 
     

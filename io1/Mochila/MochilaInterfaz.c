@@ -57,7 +57,7 @@ void convertirEntryBounded(){
 
     buu=boundedknapSack(capacidadMochila, pesos,valores, cantidades, nObjetos,resultado,colores,sub);
     buu=knapSackBeamer(resultado,capacidadMochila, nObjetos, colores);
-    system("evince --fullscreen knapSack.pdf");
+    system("evince --presentation knapSack.pdf");
 }//fin convertirEntry
 
 void convertirEntryUnbounded(){

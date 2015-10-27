@@ -168,7 +168,7 @@ void equipmentBeamer(int* g,int** proximo,int plazo){
     fprintf(fp,"\\end{document}");
     fclose(fp);
     system("pdflatex equipment.tex");
-    system("evince --fullscreen equipment.pdf");	
+    system("evince --presentation equipment.pdf");	
 	
 }
 

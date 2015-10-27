@@ -374,6 +374,6 @@ void floydBeamer(int**zero, int**d,int**p,int order){
     fprintf(fp,"\\end{document}");
     fclose(fp);
     system("pdflatex floyd.tex");
-    system("evince --fullscreen floyd.pdf");
+    system("evince --presentation floyd.pdf");
 }
  
