@@ -1,4 +1,5 @@
 int minValor(int **,int,int,int);
+char** formarParentesis(char **, int, int, int**);
 int calcularEntradaD(int,int*,int, int ,int);
 int calcularMinEntrada(int**,int*,int, int,int);
 int* crearVDimensiones(int*,int ,int**);

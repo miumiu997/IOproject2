@@ -15,7 +15,7 @@ void matricesFunc(GtkWidget *widget, gpointer user_data)
 {
     printf("Matrices Func\n");
     system("gcc -Wall -g -o testMatrices MultiplicacionMatrices/MatricesInterfaz.c MultiplicacionMatrices/logicaMatrices.c `pkg-config --cflags --libs gtk+-3.0`-w -lm ");
-    system("./testMatrices");
+    system("./testMatrices&");
 }//end MatricesFunc
 
 void mochilaFunc(){
