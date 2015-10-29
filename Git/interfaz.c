@@ -1,7 +1,6 @@
 #include <gtk/gtk.h>
 
 void executeFloyd(){
-    printf("FLoyd Func\n");
     system("gcc -Wall -g -o testFloyd Floyd/FloydInterfaz.c Floyd/logicaFloyd.c `pkg-config --cflags --libs gtk+-3.0`-w -lm");
     system("./testFloyd&");
    
@@ -21,7 +20,7 @@ void matricesFunc(GtkWidget *widget, gpointer user_data)
 void mochilaFunc(){
     printf("Mochila Func\n");
     system("gcc -Wall -g -o testMochila Mochila/MochilaInterfaz.c Mochila/logicaMochila.c `pkg-config --cflags --libs gtk+-3.0`-w -lm");
-    system("./testMochila");
+    system("./testMochila&");
     
 }//end MochilaFUnc
 

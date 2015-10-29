@@ -11,6 +11,7 @@ GtkWidget *SRWindwObjs;
 GtkWidget *SRWindowCapacity;
 GtkWidget *spinObjetos;
 GtkWidget *spinCapacity;
+GtkWidget *txtNewFile;
 int nObjetos;
 GtkWidget ***capacidades;
 GtkWidget **objetos;
@@ -300,6 +301,7 @@ int main(int argc, char *argv[])
     gtk_widget_set_size_request(GTK_WINDOW(SRWindowCapacity),200,200);
     spinObjetos= GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "spinObjetos"));
     spinCapacity= GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "spinCapacity"));
+    txtNewFile= GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "txtNewFile"));
     g_signal_connect (window, "destroy", G_CALLBACK (on_window_destroy), NULL);
     gtk_widget_set_tooltip_text (btnBounded, "Se crean los espacios necesarios para el algoritmo Bounded Knapsack. "); 
     gtk_widget_set_tooltip_text (btnUnbounded, "Se crean los espacios necesarios para el algoritmo Unbounded Knapsack. "); 
