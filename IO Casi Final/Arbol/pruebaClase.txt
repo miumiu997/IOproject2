@@ -1,0 +1,7 @@
+Beatles ; 
+4
+mccartney-0,39
+lennon-0,32
+starr-0,11
+harrison-0,18
+#
