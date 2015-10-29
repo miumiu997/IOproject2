@@ -63,39 +63,29 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
     int max;
     int fila=0;
     int columna=0;
-    
     int f=0;
-    while((ch=fgetc(fp)) != '\n'){
-        if (ch == ';')
-        {
-            printf("nom:%s\n", palabra);
-            gtk_entry_set_text(txtMatrices,palabra);
-            largo =0;
-            f++;
-        }
-        else{
-            largo++;
-            palabra = (char*) realloc(palabra,largo * sizeof(char));
-            palabra[largo-1] = ch;
-        }
-        
-    }
-    printf("nom:%s\n", palabra);
+
 
     while((ch=fgetc(fp)) != '\n'){
         largo++;
         palabra = (char*) realloc(palabra,largo * sizeof(char));
         palabra[largo-1] = ch;
-    }   
-    palabra = (char*) realloc(palabra,0);
-    memset(palabra,0,largo);
+    } 
+    printf("%s\n",palabra);
+    gtk_entry_set_text(txtMatrices,palabra);
+    palabra = (char*)calloc(1, sizeof(char));
     largo = 0;
-    numero = atoi(palabra);
-    
-    printf("tamanio %d\n",numero);
-    int cuantas=0;
 
-    gtk_spin_button_set_value(spinMatrices,numero);
+
+    while((ch=fgetc(fp)) != '\n'){
+        largo++;
+        palabra = (char*) realloc(palabra,largo * sizeof(char));
+        palabra[largo-1] = ch;
+    } 
+    printf("%s\n",palabra);
+    gtk_spin_button_set_value(spinMatrices,atoi(palabra));
+    palabra = (char*)calloc(1, sizeof(char));
+    largo = 0;
 
     generate_Mats();
 
@@ -105,16 +95,16 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
     {
         if(ch == '\n' ){
             printf("Valor %s",palabra);
-            gtk_entry_set_text(dimensiones[numero-menosNumero][1],g_strdup_printf("%s",palabra));
+            gtk_entry_set_text(dimensiones[numero-menosNumero][1],g_strdup_printf("%d",atoi(palabra)));
             menosNumero--;
-            memset(palabra,0,largo);
+
             largo=0;
             palabra = (char*) realloc(palabra,0);
 
         }
         else if (ch == '-' ){
             printf("LLave %s",palabra);
-            gtk_entry_set_text(dimensiones[numero-menosNumero][0],g_strdup_printf("%s",palabra));
+            gtk_entry_set_text(dimensiones[numero-menosNumero][0],g_strdup_printf("%d",atoi(palabra)));
             memset(palabra,0,largo);
          
             largo=0;

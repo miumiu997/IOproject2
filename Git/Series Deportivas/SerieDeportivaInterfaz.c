@@ -80,13 +80,20 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
         palabra = (char*) realloc(palabra,largo * sizeof(char));
         palabra[largo-1] = ch;
     } 
+    int total = atoi(palabra);
     gtk_spin_button_set_value(TamanioSerie,atoi(palabra));
     palabra = (char*)calloc(1, sizeof(char));
     largo = 0;
 
+    creaTablaSerie();
+
+
+    int menosTotal = total;
     while((ch=fgetc(fp)) != '\n'){
     	if (ch == '.')
     	{
+    		gtk_entry_set_text(dimensiones[total-menosTotal],g_strdup_printf("%s",palabra));
+    		menosTotal--;
     		printf("%s\n", palabra);
     		palabra = (char*)calloc(1, sizeof(char));
     		largo = 0;
@@ -100,6 +107,8 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
     	}
     } 
     printf("%s\n", palabra);
+    gtk_entry_set_text(dimensiones[total-menosTotal],g_strdup_printf("%s",palabra));
+
 
 }
 
