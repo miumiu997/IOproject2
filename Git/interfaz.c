@@ -32,6 +32,8 @@ void seriesFunc(){
 
 void executeArbolBin(){
     printf("Arbol BInario\n");
+    system("gcc -Wall -g -o testArboles Arbol/ArbolesInterfaz.c Arbol/logicaArboles.c `pkg-config --cflags --libs gtk+-3.0`-w -lm");
+	system("./testArboles&");
 }
 void reemplazoFunc(){
     printf("Reemplazo de equipos\n");
