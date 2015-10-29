@@ -539,7 +539,11 @@ void MatricesBeamer(char* nameMat, int nMatrices,int** matrices, int* dimensione
     fprintf(fp,"\\end{frame} \n");
 
 
-
+    fprintf(fp,"\\begin{frame}\n");
+    fprintf(fp,"\\color{white}\n");
+    fprintf(fp,"\\frametitle{SOLUCI\\'ON FINAL}\n");
+    fprintf(fp,"El n\\'umero m\\'inimo de multiplicacines es de %d.\n",matrizM[1][nMatrices]);
+    fprintf(fp,"\\end{frame} \n");
 
 
     fprintf(fp,"\\end{document}");
