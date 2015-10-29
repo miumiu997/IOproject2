@@ -11,8 +11,7 @@ void on_window_destroy (GtkWidget *object, gpointer user_data) {
 }
 
 void matricesFunc(GtkWidget *widget, gpointer user_data)
-{
-    printf("Matrices Func\n");
+{    
     system("gcc -Wall -g -o testMatrices MultiplicacionMatrices/MatricesInterfaz.c MultiplicacionMatrices/logicaMatrices.c `pkg-config --cflags --libs gtk+-3.0`-w -lm ");
     system("./testMatrices");
 }//end MatricesFunc
@@ -37,7 +36,7 @@ void executeArbolBin(){
 void reemplazoFunc(){
     printf("Reemplazo de equipos\n");
     system("gcc -Wall -g -o testReemplazo Reemplazo/ReemplazoInterfaz.c Reemplazo/logicaReemplazo.c  `pkg-config --cflags --libs gtk+-3.0`-w -lm");
-    system("./testReemplazo");
+    system("./testReemplazo&");
 }
 int main(int argc, char *argv[])
 {

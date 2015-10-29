@@ -10,6 +10,7 @@ GtkWidget *window;
 GtkWidget *SRWindowMantenimiento;
 GtkWidget ***mantenimientos;
 GtkWidget *btnChooseFile;
+GtkWidget *txtNewFile;
 
 GtkWidget *spinCambio;
 GtkWidget *spinVidaUtil;
@@ -233,7 +234,7 @@ int main(int argc, char *argv[])
     btnSave = GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "btnSave"));
     btnChooseFile = GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "btnChooseFile"));
     btnMantenimientos = GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "btnMantenimientos"));
-
+    txtNewFile= GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "txtNewFile"));
     SRWindowMantenimiento = GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "SRWindowMantenimiento"));
     gtk_widget_set_size_request(GTK_WINDOW(SRWindowMantenimiento),200,200);
     
