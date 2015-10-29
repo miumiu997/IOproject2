@@ -3,7 +3,7 @@
 void executeFloyd(){
     printf("FLoyd Func\n");
     system("gcc -Wall -g -o testFloyd Floyd/FloydInterfaz.c Floyd/logicaFloyd.c `pkg-config --cflags --libs gtk+-3.0`-w -lm");
-    system("./testFloyd");
+    system("./testFloyd&");
    
 }//end execute floyd
 
