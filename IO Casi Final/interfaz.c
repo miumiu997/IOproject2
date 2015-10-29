@@ -3,7 +3,7 @@
 void executeFloyd(){
     printf("FLoyd Func\n");
     system("gcc -Wall -g -o testFloyd Floyd/FloydInterfaz.c Floyd/logicaFloyd.c `pkg-config --cflags --libs gtk+-3.0`-w -lm");
-    system("./testFloyd");
+    system("./testFloyd&");
    
 }//end execute floyd
 
@@ -13,32 +13,33 @@ void on_window_destroy (GtkWidget *object, gpointer user_data) {
 
 void matricesFunc(GtkWidget *widget, gpointer user_data)
 {
-    printf("Matrices Func\n");
     system("gcc -Wall -g -o testMatrices MultiplicacionMatrices/MatricesInterfaz.c MultiplicacionMatrices/logicaMatrices.c `pkg-config --cflags --libs gtk+-3.0`-w -lm ");
-    system("./testMatrices");
+    system("./testMatrices&");
 }//end MatricesFunc
 
 void mochilaFunc(){
-    printf("Mochila Func\n");
     system("gcc -Wall -g -o testMochila Mochila/MochilaInterfaz.c Mochila/logicaMochila.c `pkg-config --cflags --libs gtk+-3.0`-w -lm");
-    system("./testMochila");
+    system("./testMochila&");
     
 }//end MochilaFUnc
 
 void seriesFunc(){
-    printf("seriesFunc Func\n");
-    //system("gcc -Wall -g -o testMochila Mochila/MochilaInterfaz.c Mochila/logicaMochila.c `pkg-config --cflags --libs gtk+-3.0`-w -lm");
-    //system("./testMochila");
+    system("gcc -Wall -g -o testSeries SeriesDeportivas/SerieDeportivaInterfaz.c SeriesDeportivas/logica_series_deportivas.c  `pkg-config --cflags --libs gtk+-3.0`-w");
+	system("./testSeries&");
+   
     
 }//end MochilaFUnc
 
 void executeArbolBin(){
-    printf("Arbol BInario\n");
-}
+     printf("Arbol BInario\n");
+    system("gcc -Wall -g -o testArboles Arbol/ArbolesInterfaz.c Arbol/logicaArboles.c `pkg-config --cflags --libs gtk+-3.0`-w -lm");
+	system("./testArboles&");
+}//end executeArbolBin
+
 void reemplazoFunc(){
     printf("Reemplazo de equipos\n");
     system("gcc -Wall -g -o testReemplazo Reemplazo/ReemplazoInterfaz.c Reemplazo/logicaReemplazo.c  `pkg-config --cflags --libs gtk+-3.0`-w -lm");
-    system("./testReemplazo");
+    system("./testReemplazo&");
 }
 int main(int argc, char *argv[])
 {

@@ -161,9 +161,9 @@ int knapSackBeamer(int** resultado,int max, int numero, int** colores){
     fprintf(fp,"\\color{white}\n");
     fprintf(fp,"\\frametitle{ALGORITMO DE LA MOCHILA}\n");
     fprintf(fp,"El algoritmo de Floyd-Warshall, descrito en 1959 por Bernard Roy.\n");
-    fprintf(fp,"\\\\Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos ponderados.\n"); 
-    fprintf(fp,"\\\\El algoritmo encuentra el camino entre todos los pares de vértices en una única ejecución.\n");
-    fprintf(fp,"\\\\ El algoritmo de Floyd-Warshall es un ejemplo de programación dinámica.\n");
+    fprintf(fp,"\\\\Es un algoritmo de an\\'alisis sobre grafos para encontrar el camino m\\'inimo en grafos dirigidos ponderados.\n"); 
+    fprintf(fp,"\\\\El algoritmo encuentra el camino entre todos los pares de v\\'ertices en una \\'unica ejecuci\\'on.\n");
+    fprintf(fp,"\\\\ El algoritmo de Floyd-Warshall es un ejemplo de programaci\\'on din\\'amica.\n");
     fprintf(fp,"\\end{frame} \n");
 
     fprintf(fp,"\\frame{\\frametitle{knapSack}\n ");

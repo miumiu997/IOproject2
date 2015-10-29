@@ -39,9 +39,9 @@
     <property name="can_focus">False</property>
     <property name="stock">gtk-missing-image</property>
   </object>
-  <object class="GtkWindow" id="windowMatrices">
+  <object class="GtkWindow" id="windowArbolBin">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Problema de la mochila</property>
+    <property name="title" translatable="yes">Arboles Binarios</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>

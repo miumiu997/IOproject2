@@ -254,8 +254,8 @@ int main(int argc, char *argv[])
 
     gtk_init(&argc, &argv);    
     gtkBuilder = gtk_builder_new();
-    gtk_builder_add_from_file(gtkBuilder, "Matrices.glade", NULL);
-    window = GTK_WIDGET(gtk_builder_get_object(gtkBuilder, "windowMatrices"));
+    gtk_builder_add_from_file(gtkBuilder, "arbolBin.glade", NULL);
+    window = GTK_WIDGET(gtk_builder_get_object(gtkBuilder, "windowArbolBin"));
     gtk_widget_set_size_request(GTK_WINDOW(window),900,800);
     btnCargar = GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "btnCargar"));
     btnSave = GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "btnGuardar"));

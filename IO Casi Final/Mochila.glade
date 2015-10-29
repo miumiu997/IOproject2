@@ -169,15 +169,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkStatusbar" id="statusbar4">
+          <object class="GtkButton" id="buttonCargar">
+            <property name="label" translatable="yes">Cargar</property>
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
-            <property name="margin_top">6</property>
-            <property name="margin_bottom">6</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
           </object>
           <packing>
             <property name="expand">False</property>

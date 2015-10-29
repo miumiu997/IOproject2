@@ -12,6 +12,17 @@
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
   </object>
+  <object class="GtkSpinButton" id="spinCapacity">
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
+    <property name="text" translatable="yes">1</property>
+    <property name="progress_pulse_step">1</property>
+    <property name="adjustment">adjustment2</property>
+    <property name="climb_rate">1</property>
+    <property name="digits">1</property>
+    <property name="numeric">True</property>
+    <property name="value">0.02</property>
+  </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -28,9 +39,9 @@
     <property name="can_focus">False</property>
     <property name="stock">gtk-missing-image</property>
   </object>
-  <object class="GtkWindow" id="windowFloyd">
+  <object class="GtkWindow" id="windowArbolBin">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Problema rutas mas cortas</property>
+    <property name="title" translatable="yes">Arboles Binarios</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
@@ -117,7 +128,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkStatusbar" id="statusbar1">
+          <object class="GtkStatusbar" id="statusbar7">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_left">10</property>
@@ -126,23 +137,23 @@
             <property name="margin_bottom">6</property>
             <property name="orientation">vertical</property>
             <property name="spacing">2</property>
+            <child>
+              <object class="GtkLabel" id="lbl_title">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Arbol Binario de Busqueda</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="lbl_title">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">PROBLEMA DE LAS RUTAS MÁS CORTAS</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
           </packing>
         </child>
         <child>
@@ -159,14 +170,25 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblFIle">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Ingresar datos desde un archivo:</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
             <property name="position">3</property>
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="label3">
+          <object class="GtkFileChooserButton" id="btnChooseFile">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">En caso de querer cargar los datos desde un archivo:</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -175,15 +197,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkStatusbar" id="statusbar9">
+          <object class="GtkButton" id="btnCargar">
+            <property name="label" translatable="yes">Cargar</property>
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
-            <property name="margin_top">6</property>
-            <property name="margin_bottom">6</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -197,43 +215,7 @@
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkFileChooserButton" id="filechooserbutton1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkGrid" id="grid2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkButton" id="btnCargar">
-                    <property name="label" translatable="yes">Cargar</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkStatusbar" id="statusbar4">
+              <object class="GtkStatusbar" id="statusbar3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">10</property>
@@ -246,14 +228,56 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="lblSave">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Guardar los datos ingresados en un archivo:</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="txtfileCreate">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
                 <property name="position">2</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label2">
+              <object class="GtkStatusbar" id="statusbar1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Si se desea guardar los datos ingresados:</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">6</property>
+                <property name="margin_bottom">6</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
+                <child>
+                  <object class="GtkButton" id="btnGuardar">
+                    <property name="label" translatable="yes">Guardar</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -269,9 +293,10 @@
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="txtNewFile">
+          <object class="GtkLabel" id="lblNameMat">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Nombre del Arbol Binario</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -280,11 +305,9 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="btnSavee">
-            <property name="label" translatable="yes">Guardar</property>
+          <object class="GtkEntry" id="txtNameMat">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -293,15 +316,10 @@
           </packing>
         </child>
         <child>
-          <object class="GtkStatusbar" id="statusbar5">
+          <object class="GtkLabel" id="label3">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
-            <property name="margin_top">6</property>
-            <property name="margin_bottom">6</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
+            <property name="label" translatable="yes">Cantidad de Nodos:</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -310,11 +328,16 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="lblInfo">
+          <object class="GtkSpinButton" id="spinMats">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Datos necesarios para el algoritmo</property>
-            <property name="width_chars">1</property>
+            <property name="can_focus">True</property>
+            <property name="text" translatable="yes">0,0</property>
+            <property name="progress_pulse_step">1</property>
+            <property name="adjustment">adjustment1</property>
+            <property name="climb_rate">1</property>
+            <property name="digits">1</property>
+            <property name="numeric">True</property>
+            <property name="value">0.02</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -323,39 +346,43 @@
           </packing>
         </child>
         <child>
-          <object class="GtkGrid" id="grid1">
+          <object class="GtkStatusbar" id="statusbar10">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
+            <property name="margin_top">6</property>
+            <property name="margin_bottom">6</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">2</property>
             <child>
-              <object class="GtkLabel" id="label1">
+              <object class="GtkButton" id="btnMatrices">
+                <property name="label" translatable="yes">Ingresar Nodos</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Cantidad de Nodos:   </property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
               </object>
               <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
               </packing>
             </child>
             <child>
-              <object class="GtkSpinButton" id="spinNodos">
+              <object class="GtkStatusbar" id="statusbar5">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="text" translatable="yes">1</property>
-                <property name="progress_pulse_step">1</property>
-                <property name="adjustment">adjustment1</property>
-                <property name="climb_rate">1</property>
-                <property name="digits">1</property>
-                <property name="numeric">True</property>
-                <property name="value">0.02</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">6</property>
+                <property name="margin_bottom">6</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
               </object>
               <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
               </packing>
             </child>
           </object>
@@ -366,11 +393,10 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="btnCrearTabla">
-            <property name="label" translatable="yes">Crear tabla</property>
+          <object class="GtkScrolledWindow" id="scrlWinMatrices">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
+            <property name="shadow_type">in</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -379,7 +405,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkStatusbar" id="statusbar3">
+          <object class="GtkStatusbar" id="statusbar4">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_left">10</property>
@@ -388,86 +414,11 @@
             <property name="margin_bottom">6</property>
             <property name="orientation">vertical</property>
             <property name="spacing">2</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">13</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkScrolledWindow" id="SRWindw">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="shadow_type">in</property>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">14</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkStatusbar" id="statusbar8">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
-            <property name="margin_top">6</property>
-            <property name="margin_bottom">6</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">15</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkStatusbar" id="statusbar7">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
-            <property name="margin_top">6</property>
-            <property name="margin_bottom">6</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">16</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkScrolledWindow" id="scrollDistancias">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="shadow_type">in</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">17</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkStatusbar" id="statusbar6">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
-            <property name="margin_top">6</property>
-            <property name="margin_bottom">6</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">18</property>
           </packing>
         </child>
       </object>

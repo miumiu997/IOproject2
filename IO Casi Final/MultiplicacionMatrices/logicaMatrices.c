@@ -4,6 +4,73 @@
 #include "logicaMatrices.h"
 #include <math.h>
 int **tablaP;
+
+void putParenthesisAux(int**P,int i,int j, char parenthesis[][10],int modo){
+    printf("entre!!\n");
+    char change[10];
+    if (modo ==0){
+        if (P[i+1][j]!=0){
+            strcat(parenthesis[i],"(");
+            strcat(parenthesis[P[i+1][j]],")(");
+            
+            strcpy (change,")");
+            strcat(change,parenthesis[j]);
+            strcpy(parenthesis[j],change);
+            putParenthesisAux(P,i,P[i+1][j],parenthesis,0);
+            putParenthesisAux(P,P[i+1][j]+1,j,parenthesis,1);
+        
+        }
+    }else{
+        if (P[i][j]!=0){
+            strcat(parenthesis[P[i+1][j]],")(");
+            strcat(parenthesis[i],"(");
+            strcat(parenthesis[j],")");
+            putParenthesisAux(P,i,P[i+1][j],parenthesis,0);
+            putParenthesisAux(P,P[i+1][j]+1,j,parenthesis,1);
+        
+        }
+    }
+    
+}
+
+void putParenthesis(int **P,int numMatrices){
+    printf("entre!!principal\n");
+    printf("%d\n",P[1][numMatrices] );
+    char parenthesis[numMatrices+1][10];
+    int* matrices;
+    int i;
+    char **resultado;
+    resultado = calloc(1024,sizeof(char*));
+    //parenthesis = calloc(numMatrices+1,10*sizeof(char*));
+    matrices = calloc(numMatrices,sizeof(int));
+
+    for (i = 0; i < numMatrices;i++){
+        matrices[i] = i+1;
+    }
+
+    for (i = 0; i < numMatrices+1;i++){
+        strcpy (parenthesis[i],"");
+    }
+
+    strcat(parenthesis[P[1][numMatrices]],")(");
+    strcat(parenthesis[0],"(");
+    strcat(parenthesis[numMatrices],")");
+
+
+    putParenthesisAux(P,0,P[1][numMatrices],parenthesis,0);
+    putParenthesisAux(P,P[1][numMatrices]+1,numMatrices,parenthesis,1);
+
+    
+    
+    for (i = 0; i < numMatrices;i++){
+        printf("%s %d",parenthesis[i],matrices[i]);
+    }
+    printf("%s\n",parenthesis[numMatrices] );
+
+
+}
+
+
 int calcularEntradaD(int nMatrices,int* dimensiones,int fila,int k,int columna){
 	/** Permite calcular las entradas de la tabla M,
 	donde j=i+1
@@ -159,7 +226,7 @@ void crearTablaM(char* nameMat,int nMatrices,int** matrices ,int* dimensiones){
     	}//end for columnas
       printf("\n");
     }//ennd for filas*/
-    
+    //putParenthesis(tablaP,nMatrices);
 	printf("Voy al beamer\n");
     MatricesBeamer(nameMat,nMatrices,matrices,dimensiones,tablaM,tablaP);
 }

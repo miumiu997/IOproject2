@@ -17,6 +17,7 @@ GtkWidget **nombres;
 int **distanciasFloyd;
 gint res;
 char *filename;
+GtkWidget *txtNewFile;
 
 /*Cargar desde un archivo*/
 void cargarFile(GtkWidget *widget, gpointer user_data){ 
@@ -134,6 +135,8 @@ void cargarFile(GtkWidget *widget, gpointer user_data){
 /*GUardar lo de la interfaz*/
 void save(GtkWidget *widget, gpointer user_data){ 
 int a,b,x; 
+char newfile[50];
+strcpy(newfile,gtk_entry_get_text (GTK_ENTRY(txtNewFile)) );
 //char text; 
 
     g_printf("--------------------- %d\n");  
@@ -159,7 +162,7 @@ printf("--------------------- %d\n");
 
    FILE *fp;
 
-   fp = fopen("respaldo.txt", "w"); 
+   fp = fopen(newfile, "w"); 
 
     fprintf(fp, "%d \n", tamanio);  
         for(x=0; x<tamanio;x++){   
@@ -319,9 +322,6 @@ void generate_table(GtkWidget *widget, gpointer user_data)
     g_signal_connect (createFloyd, "clicked", G_CALLBACK (ejecutarFloyd), NULL);
     gtk_grid_attach (GTK_GRID (table), createFloyd, 1, tamanio+2, 1, 1);
 
-    addNode = gtk_button_new_with_label("+");
-    g_signal_connect (addNode, "clicked", G_CALLBACK (ejecutarFloyd), NULL);
-    gtk_grid_attach (GTK_GRID (table), addNode, 2, tamanio+2, 1, 1);
     gtk_widget_show_all (window);
 }
 
@@ -373,8 +373,8 @@ int main(int argc, char *argv[])
     container2 = GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "scrollDistancias"));
     gtk_widget_set_size_request(GTK_WINDOW(container2),200,200);
     spinNodos= GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "spinNodos"));
-
-    
+	txtNewFile = GTK_WIDGET (gtk_builder_get_object (gtkBuilder, "txtNewFile"));
+       
         
         
     g_signal_connect (window, "destroy", G_CALLBACK (on_window_destroy), NULL);

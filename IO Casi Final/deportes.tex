@@ -1,0 +1,89 @@
+\documentclass[10]{beamer} 
+\usepackage[T1]{fontenc} 
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{dirtytalk}
+\definecolor{dgreen}{rgb}{0.,0.6,0.}
+\definecolor{WHITE}{RGB}{255,255,255}
+\definecolor{amarillo}{RGB}{255,255,0}
+\definecolor{gris}{RGB}{174,174,174}
+\definecolor{ROJO}{RGB}{237,28,36}
+\setbeamercolor{normal text}{bg=black!80}
+\setbeamercolor{frametitle}{fg=black,bg=amarillo!20}
+\setbeamercolor{subtitle}{fg=WHITE}
+\setbeamercolor{section in head/foot}{bg=amarillo}
+\setbeamercolor{author}{fg=WHITE}
+\setbeamercolor{date in head/foot}{fg=amarillo}
+\title{{\color{WHITE} \large \textbf{INSTITUTO TECNOL\'OGICO DE COSTA RICA}} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{ESCUELA DE INGENIER\'IA EN COMPUTACI'ON }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{INVESTIGACI\'ON DE OPERACIONES  }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{ALGORITMO PARA LAS \\ SERIES DEPORTIVAS  }} \\ \vspace{0.02cm} 
+{\color{WHITE} \large \textbf{I SEMESTRE  }}\\ \vspace{0.02cm}
+{\color{WHITE} \large \textbf{PROFESOR}} \\ \vspace{0.02cm}
+{\color{WHITE} \large DR. FRANCISCO J. TORRES ROJAS  } \\ \vspace{0.02cm}
+{\color{WHITE} \large \textbf{GRUPO 40}} \\ \vspace{0.01cm}
+{\color{WHITE} \large \textbf{ESTUDIANTES} }} 
+\color{WHITE} \author{KATHY ANDRE\'INA BRENES GUERRERO. \\ ADRIAN CUBERO MORA. \\MIUYIN YONG WONG}
+\date{\em \color{WHITE} \today}
+\begin{document}
+\begin{frame}
+\color{white}
+\titlepage portada
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{ALGORITMO PARA SERIE DEPORTIVAS}
+Entre dos equipos A y B se dice que A tiene una posibilidad p de ganar y B tiene una posibilidad q = 1-p de ganar.
+\\ Cu\'al es la probabilidad de que el grupo A sea campe\'on ?
+\\Este algoritmo permite contestar esa pregunta.
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{PROPIEDADES DE LAS SERIES DEPORTIVAS}
+La cantidad de filas y columnas deben ser igual a la canitdad de partidos comenzando desde 0.
+\\ Un par ordenado ser\'ia (i,j) donde i representa la cantidad de partidos que le faltan a A para ganar y j representa la cantiad de partidos que le faltan a B para ganar.
+\\El estado inicial ser\'ia (cantidad de partidos, cantidad de partidos).
+\\ En cada una de esas casillas se calulara la probabilidad que tiene el equipo A en ganar (cada probabilidad es independiente).
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{FUNCIONES}
+La funci\'on que regresa la probabilidad de que A sea campi\'on se define como:
+\\F(i,j)=p*F(i-1,j) + q*F(i, j-1) 
+\\ Casos triviales: F(0,j) = 1    F(i,0) = 0
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{VENTAJA LOCAL}
+Los equipos tienden a jugar mejor en casa en ciertos deportes.
+\\Por esa raz\'on se establecen dos probabilidades Ph y Pr. 
+\\ Ph siendo en casa y Pr de visita, las probabilidades del equipo contrario son los complementos.
+\\ Dada una serie de cuantos equipos ocurriran en casa, se calculan cu\'al de las dos probabildiades se tiene que usar.
+\end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{VALORES INICIALES}
+Cantidad de partidos: $4 $ \\Probabilidad Home: $0,5200 $ \\Probabilidad Road: $0,4800 $ \\Serie: 2 , 7 , 14 \end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{RESULTADO}
+\begin{table}
+ \begin{tabular}{ c | c  | c  | c  | c }
+ \\  $0$ & $1$   & $2$   & $3$   & $4$  \\ 
+ \hline \hline 
+   & $1,0000$   & $1,0000$   & $1,0000$   & $1,0000$   \\ 
+ $0,0000$ & $0,4800$   & $0,7296$   & $0,8594$   & $0,9269$   \\ 
+ $0,0000$ & $0,2304$   & $0,4700$   & $0,6569$   & $0,7865$   \\ 
+ $0,0000$ & $0,1106$   & $0,2831$   & $0,4625$   & $0,6310$   \\ 
+ $0,0000$ & $0,0531$   & $0,1635$   & $0,3190$   & $0,4812$   \\ 
+ \end{tabular}
+ \end{table}
+ \end{frame} 
+\begin{frame}
+\color{white}
+\frametitle{RESULTADO FINAL}
+La probabilidad de que el equipo A gane es de $0,4812$. \\\end{frame} 
+\end{document}

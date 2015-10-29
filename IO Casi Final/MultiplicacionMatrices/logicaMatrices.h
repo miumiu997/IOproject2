@@ -1,3 +1,5 @@
+void putParenthesis(int **,int);
+void putParenthesisAux(int**P,int i,int j, char parenthesis[][10],int modo);
 int minValor(int **,int,int,int);
 int calcularEntradaD(int,int*,int, int ,int);
 int calcularMinEntrada(int**,int*,int, int,int);

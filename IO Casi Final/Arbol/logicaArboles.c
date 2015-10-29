@@ -73,9 +73,9 @@ void arbolBinarioBusqueda(int cantidad, char** llaves, double* probablidades){
         printf("\n");
     }
 
-    arbol(imprimir,llaves,R);
+    //arbol(imprimir,llaves,R);
 
-    //ArbolesBBeamer(imprimir,llaves,probablidades,A,R);
+    ArbolesBBeamer(imprimir,llaves,probablidades,A,R);
 
     return 0;
 }
