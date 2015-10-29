@@ -44,36 +44,33 @@ El algoritmo de Floyd-Warshall, descrito en 1959 por Bernard Roy.
 \frame{\frametitle{D0}
  \color{white}
 \begin{center}
- \begin{tabular}{|l |l |l |l |l |} \hline
-9999&6&9999&4&7\\ \hline
-9&9999&7&9999&9999\\ \hline
-9999&5&9999&9999&14\\ \hline
-8&1&9999&9999&15\\ \hline
-2&9999&2&19&9999\\ \hline
+ \begin{tabular}{|l |l |l |l |} \hline
+0&4&9999&9999\\ \hline
+4&0&2&9999\\ \hline
+1&9999&0&2\\ \hline
+9999&3&2&0\\ \hline
 \end{tabular}
 \end{center}
  }
 \frame{\frametitle{DN}
  \color{white}
 \begin{center}
- \begin{tabular}{|l |l |l |l |l |} \hline
-0 &5 &9 &4 &7 \\ \hline
-9 &0 &7 &13 &16 \\ \hline
-14 &5 &0 &18 &14 \\ \hline
-8 &1 &8 &0 &15 \\ \hline
-2 &7 &2 &6 &0 \\ \hline
+ \begin{tabular}{|l |l |l |l |} \hline
+0 &4 &6 &8 \\ \hline
+3 &0 &2 &4 \\ \hline
+1 &5 &0 &2 \\ \hline
+3 &3 &2 &0 \\ \hline
 \end{tabular}
 \end{center}
  }
 \frame{\frametitle{P}
  \color{white}
 \begin{center}
- \begin{tabular}{|l |l |l |l |l |} \hline
-0&4&5&0&0\\ \hline
-0&0&0&1&1\\ \hline
-2&0&0&2&0\\ \hline
-0&0&2&0&0\\ \hline
-0&3&0&1&0\\ \hline
+ \begin{tabular}{|l |l |l |l |} \hline
+0&0&2&3\\ \hline
+3&0&0&3\\ \hline
+0&1&0&0\\ \hline
+3&0&0&0\\ \hline
 \end{tabular}
 \end{center}
  }
@@ -83,60 +80,44 @@ El algoritmo de Floyd-Warshall, descrito en 1959 por Bernard Roy.
 \frame{\frametitle{D1}
  \color{white}
 \begin{center}
- \begin{tabular}{|l |l |l |l |l |} \hline
-0&6&9999&4&7\\ \hline
-9&0&7&13&16\\ \hline
-9999&5&0&9999&14\\ \hline
-8&1&9999&0&15\\ \hline
-2&8&2&6&0\\ \hline
+ \begin{tabular}{|l |l |l |l |} \hline
+0&4&9999&9999\\ \hline
+4&0&2&9999\\ \hline
+1&5&0&2\\ \hline
+9999&3&2&0\\ \hline
 \end{tabular}
 \end{center}
  }
 \frame{\frametitle{D2}
  \color{white}
 \begin{center}
- \begin{tabular}{|l |l |l |l |l |} \hline
-0&6&13&4&7\\ \hline
-9&0&7&13&16\\ \hline
-14&5&0&18&14\\ \hline
-8&1&8&0&15\\ \hline
-2&8&2&6&0\\ \hline
+ \begin{tabular}{|l |l |l |l |} \hline
+0&4&6&9999\\ \hline
+4&0&2&9999\\ \hline
+1&5&0&2\\ \hline
+7&3&2&0\\ \hline
 \end{tabular}
 \end{center}
  }
 \frame{\frametitle{D3}
  \color{white}
 \begin{center}
- \begin{tabular}{|l |l |l |l |l |} \hline
-0&6&13&4&7\\ \hline
-9&0&7&13&16\\ \hline
-14&5&0&18&14\\ \hline
-8&1&8&0&15\\ \hline
-2&7&2&6&0\\ \hline
+ \begin{tabular}{|l |l |l |l |} \hline
+0&4&6&8\\ \hline
+3&0&2&4\\ \hline
+1&5&0&2\\ \hline
+3&3&2&0\\ \hline
 \end{tabular}
 \end{center}
  }
 \frame{\frametitle{D4}
  \color{white}
 \begin{center}
- \begin{tabular}{|l |l |l |l |l |} \hline
-0&5&12&4&7\\ \hline
-9&0&7&13&16\\ \hline
-14&5&0&18&14\\ \hline
-8&1&8&0&15\\ \hline
-2&7&2&6&0\\ \hline
-\end{tabular}
-\end{center}
- }
-\frame{\frametitle{D5}
- \color{white}
-\begin{center}
- \begin{tabular}{|l |l |l |l |l |} \hline
-0&5&9&4&7\\ \hline
-9&0&7&13&16\\ \hline
-14&5&0&18&14\\ \hline
-8&1&8&0&15\\ \hline
-2&7&2&6&0\\ \hline
+ \begin{tabular}{|l |l |l |l |} \hline
+0&4&6&8\\ \hline
+3&0&2&4\\ \hline
+1&5&0&2\\ \hline
+3&3&2&0\\ \hline
 \end{tabular}
 \end{center}
  }
